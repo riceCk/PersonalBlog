@@ -1,0 +1,24 @@
+/**
+* 时间：2019.1.29
+* 作者：陈凯
+* 描述：内容左侧
+*/
+<template>
+  <div class="content_left">
+    <every-day />
+  </div>
+</template>
+
+<script>
+  import EveryDay from './EveryDay'
+
+  export default {
+    components: {
+	  EveryDay
+    }
+  }
+</script>
+
+<style scoped>
+
+</style>

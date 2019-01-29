@@ -1,0 +1,31 @@
+.content {
+  position: relative;
+  width: 1170px;
+  margin: 30px auto 0 auto;
+  .content_left {
+    float: left;
+    width: 66%;
+    padding: 0 20px 0 0;
+    box-sizing: border-box;
+    .every_day {
+      width: 100%;
+      padding: 10px 15px;
+      background-color: white;
+      text-align: left;
+      border-radius: 5px;
+      box-shadow: 3px 4px 3px #888;
+      span {
+        display: block;
+        font-size: 12px;
+        margin-bottom: 5px;
+        color: slateblue;
+      }
+    }
+  }
+  .content-right {
+    float: right;
+    width: 34%;
+    padding: 0 0 0 0;
+  }
+}
+
