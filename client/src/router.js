@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/default'
 import Index from './views/page/index'
+import NavMap from './views/page/navMap'
 
 Vue.use(Router)
 
@@ -19,6 +20,10 @@ export default new Router({
         name: 'index',
         component: Index
       }]
-    },
+    },{
+      path: '/navMap',
+      name: 'navMap',
+	  component: NavMap,
+    }
   ]
 })

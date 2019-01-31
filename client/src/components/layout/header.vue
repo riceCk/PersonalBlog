@@ -6,10 +6,10 @@
 <template>
   <header class="header">
     <div class="container">
-      <router-link to="/" class="title">我的个人博客 | 技术博客</router-link>
+      <router-link :to="{name: 'home'}" class="title">我的个人博客 | 技术博客</router-link>
       <ul class="menu">
-        <router-link tag="li" to="/">首页</router-link>
-        <router-link tag="li" to="/">地图</router-link>
+        <router-link tag="li" :to="{name: 'home'}">首页</router-link>
+        <router-link tag="li" :to="{name: 'navMap'}">地图</router-link>
         <router-link tag="li" to="/">关于</router-link>
         <router-link tag="li" to="/">留言</router-link>
       </ul>

@@ -1,0 +1,36 @@
+.nav_map {
+  .title {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    line-height: 50px;
+    font-size: 20px;
+  }
+  .blog_list {
+    border: 1px solid #eee;
+    width: 95%;
+    padding: 10px;
+    margin: 10px auto;
+    font-size: 10px;
+    font-weight: 600;
+    span {
+      display: block;
+    }
+    ul {
+      padding: 10px 10px;
+      font-size: 14px;
+      font-weight: 600;
+      width: 100%;
+      margin: 10px auto;
+      li {
+        margin-top: 5px;
+        cursor: pointer;
+        color: #000;
+        font-weight: 400;
+        display: block;
+        padding: 5px 0;
+        border-bottom: 1px dashed #eee;
+      }
+    }
+  }
+}

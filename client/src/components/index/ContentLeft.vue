@@ -6,15 +6,22 @@
 <template>
   <div class="content_left">
     <every-day />
+    <article-list />
+    <article-list />
+    <article-list />
+    <article-list />
+    <article-list />
   </div>
 </template>
 
 <script>
   import EveryDay from './EveryDay'
+  import ArticleList from './ArticleList'
 
   export default {
     components: {
-	  EveryDay
+	  EveryDay,
+	  ArticleList
     }
   }
 </script>

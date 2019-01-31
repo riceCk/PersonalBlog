@@ -5,7 +5,20 @@
 */
 <template>
   <div class="footer">
-    footer
+    <ul>
+      <li>c/c++</li>
+      <li>c/c++</li>
+      <li>c/c++</li>
+      <li>c/c++</li>
+      <li>c/c++</li>
+      <li>c/c++</li>
+      <li>c/c++</li>
+      <li>c/c++</li>
+      <li>c/c++</li>
+      <li>c/c++</li>
+      <li>c/c++</li>
+    </ul>
+    <p>使用百度前必读使用百度前必读使用百度前必读使用百度前必读</p>
   </div>
 </template>
 
@@ -14,6 +27,7 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss">
+  @import '../../assets/css/layout/footer';
 
 </style>
