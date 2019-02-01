@@ -10,8 +10,8 @@
       <ul class="menu">
         <router-link tag="li" :to="{name: 'home'}">首页</router-link>
         <router-link tag="li" :to="{name: 'navMap'}">地图</router-link>
-        <router-link tag="li" to="/">关于</router-link>
-        <router-link tag="li" to="/">留言</router-link>
+        <router-link tag="li" :to="{name: 'about'}">关于</router-link>
+        <router-link tag="li" :to="{name: 'guestBook'}">留言</router-link>
       </ul>
       <div class="search_bar">
         <input type="text" placeholder="输入关键词查找">

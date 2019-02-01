@@ -6,7 +6,10 @@
 <template>
   <div class="layout-default">
     <my-header />
-    <router-view></router-view>
+    <div class="content">
+      <router-view></router-view>
+      <content-right/>
+    </div>
     <my-footer />
   </div>
 </template>
@@ -14,11 +17,12 @@
 <script>
   import MyHeader from '../components/layout/header'
   import MyFooter from '../components/layout/footer'
-
+  import ContentRight from '../components/index/ContentRight'
   export default {
     components: {
 	  MyHeader,
-	  MyFooter
+	  MyFooter,
+	  ContentRight
     }
   }
 </script>

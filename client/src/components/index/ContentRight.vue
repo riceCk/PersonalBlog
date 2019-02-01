@@ -4,7 +4,7 @@
 * 描述：内容右侧
 */
 <template>
-  <div class="content-right">
+  <div class="content_right">
     <right-tag />
     <right-hot />
     <right-evaluation />

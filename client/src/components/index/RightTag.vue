@@ -6,18 +6,24 @@
 <template>
   <div class="right-module right-tag">
     <div>随机标签云</div>
-    <a href="">asd</a>
-    <a href="">qwe</a>
-    <a href="">asd</a>
-    <a href="">es</a>
-    <a href="">css</a>
-    <a href="">js</a>
-    <a href="">qrt</a>
+    <a href="" :style="{color: randomColor, fontSize: randomSize}">asd</a>
   </div>
 </template>
 
 <script>
   export default {
+    computed: {
+      randomColor () {
+        let red = Math.random() * 255;
+        let green = Math.random() * 255;
+        let blue = Math.random() * 255;
+        return `rgb(${red}, ${green}, ${blue})`
+      },
+      randomSize () {
+        let size = (Math.random() * 20 + 12) + 'px'
+        return size
+      }
+    }
   }
 </script>
 

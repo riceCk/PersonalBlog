@@ -4,20 +4,15 @@
 * 描述：首页
 */
 <template>
-  <div class="content">
     <content-left />
-    <content-right />
-  </div>
 </template>
 
 <script>
   import ContentLeft from '../../components/index/ContentLeft'
-  import ContentRight from '../../components/index/ContentRight'
 
   export default {
     components: {
 	  ContentLeft,
-	  ContentRight
     }
   }
 </script>
