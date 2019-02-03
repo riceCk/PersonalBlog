@@ -5,6 +5,8 @@ import Index from './views/page/index'
 import NavMap from './views/page/navMap'
 import About from './views/page/about'
 import GuestBook from './views/page/guestBook'
+import Dom from './views/page/dom'
+import EveryDay from './views/page/everyDay'
 
 Vue.use(Router)
 
@@ -34,6 +36,14 @@ export default new Router({
       path: '/navMap',
       name: 'navMap',
 	  component: NavMap,
+    }, {
+	  path: '/everyDay',
+	  name: 'everyDay',
+	  component: EveryDay
+	}, {
+      path: '/dom',
+      name: 'dom',
+      component: Dom
     }
   ]
 })
