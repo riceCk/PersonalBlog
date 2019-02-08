@@ -1,9 +1,6 @@
 <template>
   <div class="everyDay_editor">
     <el-row>
-      <h1>编辑每日一句</h1>
-    </el-row>
-    <el-row>
       <div class="edit_container">
         <quill-editor
           v-model="content"

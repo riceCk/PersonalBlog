@@ -1,61 +1,35 @@
 .header {
   width: 100%;
-  height: 50px;
-  background-color: #191818;
+  height: 65px;
+  border-bottom: 1px solid #E1E1E1;
   .container {
-    position: relative;
-    width: 1170px;
-    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1170px;
+    height: 65px;
     margin: 0 auto;
     .title {
-      display: inline-block;
-      float: left;
-      color: #fff;
-      line-height: 50px;
+      white-space: nowrap;
+      color: #444;
+      line-height: 65px;
       text-decoration: none;
-      margin: 0 15px;
-      font-size: 18px;
+      font-size: 22px;
     }
     .menu {
-      float: left;
       &>li {
         display: inline-block;
-        height: 50px;
+        height: 65px;
         width: 58px;
-        line-height: 50px;
+        margin-left: 20px;
+        padding: 0 4px;
+        box-sizing: border-box;
+        border-bottom: 0px solid #fff;
+        line-height: 65px;
         text-align: center;
         font-size: 14px;
-        color: #eee;
+        color: inherit;
         cursor: pointer;
-      }
-    }
-    .search_bar {
-      input {
-        display: inline-block;
-        position: absolute;
-        height: 22px;
-        padding: 5px 10px;
-        border-radius: 8px;
-        outline: none;
-        border: 1px solid;
-        font-size: 14px;
-        top: 50%;
-        margin-top: -18px;
-        right: 60px;
-      }
-      button {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        width: 54px;
-        height: 34px;
-        padding: 5px 10px;
-        display: inline-block;
-        border-radius: 8px;
-        margin-top: -18px;
-        outline: none;
-        color: #555;
-        background-color: #fff
       }
     }
   }

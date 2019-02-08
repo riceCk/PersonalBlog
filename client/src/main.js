@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './assets/css/main.css'
+import './assets/css/default.scss'
 import './plugins/element.js'
 import  VueQuillEditor from 'vue-quill-editor'
 // require styles 引入样式

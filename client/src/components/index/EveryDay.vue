@@ -6,31 +6,41 @@
 <template>
   <div class="every_day">
     <span @click="addEveryDay">每日一句</span>
-    <div v-html="content"></div>
+    <div class='ql-editor' v-html="content"></div>
+    <inquire-dialog :dialogVisible.sync="showDialog" @watchDialog="dialogFlag"/>
   </div>
 </template>
 
 <script>
   import api from '../../api/index'
+  import InquireDialog from './InquireEveryDayDialog'
   export default {
+    components: {
+	  InquireDialog
+    },
     data () {
       return {
 		content: '',
-        dialogEveryDay: false
+		showDialog: false
 	  }
     },
     created () {
-      api.getInquireEveryDay().then(res => {
-		let { data } = res
-        if (data.msg) {
-          this.content = data.list[0].content
-        }
-      })
+      this.getEvery()
     },
     methods: {
 	  addEveryDay () {
-	    this.dialogEveryDay = true
-	    console.log(123)
+	    this.showDialog = true
+      },
+	  dialogFlag (value) {
+	    this.showDialog = value
+      },
+      getEvery () {
+		api.getInquireEveryDay().then(res => {
+		  let { data } = res
+		  if (data.msg) {
+			this.content = data.list[0].content
+		  }
+		})
       }
     }
   }
