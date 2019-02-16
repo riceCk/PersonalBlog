@@ -5,7 +5,7 @@
 */
 <template>
   <div class="right-module right-evaluation">
-    <div>友情链接</div>
+    <h3>友情链接</h3>
     <span v-for="(item, index) in 4" :key="index">
       <a href="">挨踢茶馆</a>
     </span>

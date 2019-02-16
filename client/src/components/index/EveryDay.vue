@@ -5,7 +5,7 @@
 */
 <template>
   <div class="every_day">
-    <span @click="addEveryDay">每日一句</span>
+    <span @click="addEveryDay">Interesting words</span>
     <div class='ql-editor' v-html="content"></div>
     <inquire-dialog :dialogVisible.sync="showDialog" @watchDialog="dialogFlag"/>
   </div>

@@ -5,30 +5,57 @@
 */
 <template>
   <div class="nav_map">
-    <div class="title">个人博客's SiteMap</div>
-    <my-link />
-    <div class="blog_list">
-      <span>最新文案</span>
+    <div class="tag_list">
+      <h1>标签云</h1>
       <ul>
-        <router-link to="/" tag="li">正则表达式入门</router-link>
-        <router-link to="/" tag="li">NodeLess（一）</router-link>
-        <router-link to="/" tag="li">浏览器从请求到页面渲染的各个细节</router-link>
-        <router-link to="/" tag="li">vue之服务器单页面应用</router-link>
-        <router-link to="/" tag="li">vue之服务器渲染初探</router-link>
-        <router-link to="/" tag="li">你不知道到JavaScript系列二</router-link>
-        <router-link to="/" tag="li">Git与时间简史</router-link>
-        <router-link to="/" tag="li">Linux系统学习壹</router-link>
-        <router-link to="/" tag="li">Node+express+mql实战——用户管理（上）</router-link>
+        <router-link to="/" tag="li">正则表达式1</router-link>
+        <router-link to="/" tag="li">正则表达式2</router-link>
+        <router-link to="/" tag="li">正则表达式3</router-link>
+        <router-link to="/" tag="li">正则表达式4</router-link>
+        <router-link to="/" tag="li">正则表达式56</router-link>
+        <router-link to="/" tag="li">正则表达式6</router-link>
+        <router-link to="/" tag="li">正则表达式7</router-link>
+        <router-link to="/" tag="li">正则表达式</router-link>
+        <router-link to="/" tag="li">正则表达式</router-link>
+        <router-link to="/" tag="li">正则表达式</router-link>
+        <router-link to="/" tag="li">正则表达式</router-link>
+        <router-link to="/" tag="li">正则表达式</router-link>
+        <router-link to="/" tag="li">正则表达式</router-link>
+        <router-link to="/" tag="li">正则表达式</router-link>
+        <router-link to="/" tag="li">正则表达式</router-link>
+        <router-link to="/" tag="li">正则表达式</router-link>
+        <router-link to="/" tag="li">正则表达式</router-link>
+        <router-link to="/" tag="li">正则表达式</router-link>
       </ul>
+    </div>
+    <div class="blog_list">
+      <h1>归档</h1>
+      <template v-for="item in list">
+        <h2 class="date-year">{{item.dateYear}}</h2>
+        <ul class="archives-ul">
+          <li v-for="(i, n) in item.listTitle" :key="n">
+            <span>{{i.date}}</span>
+            <router-link to="/">{{i.title}}</router-link>
+          </li>
+        </ul>
+      </template>
     </div>
   </div>
 </template>
 
 <script>
-  import MyLink from '../../components/layout/link'
   export default {
-    components: {
-      MyLink
+    data () {
+      return {
+        list: []
+      }
+    },
+    created () {
+      this.$http.get('http://archives.cn').then(res => {
+        let { list } = res.data
+        console.log(list)
+        this.list = list
+      })
     }
   }
 </script>

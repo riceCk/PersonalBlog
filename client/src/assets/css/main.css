@@ -1,22 +1,3 @@
-@font-face {
-  font-family: 'iconfont';
-  /* project id 682850 */
-  src: url('//at.alicdn.com/t/font_682850_58yfbhz7jvf.eot');
-  src: url('//at.alicdn.com/t/font_682850_58yfbhz7jvf.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_682850_58yfbhz7jvf.woff') format('woff'),
-  url('//at.alicdn.com/t/font_682850_58yfbhz7jvf.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_682850_58yfbhz7jvf.svg#iconfont') format('svg');
-}
-
-@font-face {
-  font-family: 'meituan';
-  src: url(//s0.meituan.net/bs/fe-web-meituan/c19c6e9/font/home-category-iconfont.eot?t=1503027869484);
-  src: url(//s0.meituan.net/bs/fe-web-meituan/c19c6e9/font/home-category-iconfont.eot?t=1503027869484#iefix) format('embedded-opentype'),
-  url(//s0.meituan.net/bs/fe-web-meituan/c19c6e9/font/home-category-iconfont.woff?t=1503027869484) format('woff'),
-  url(//s0.meituan.net/bs/fe-web-meituan/c19c6e9/font/home-category-iconfont.ttf?t=1503027869484) format('truetype'),
-  url(//s0.meituan.net/bs/fe-web-meituan/c19c6e9/font/home-category-iconfont.svg?t=1503027869484#home-category-iconfont) format('svg')
-}
-
 .layout-blank{
   background-color: #fff;
   color: #2e2f30;
@@ -25,26 +6,13 @@
   height: 100vh;
   margin: 0;
 }
-body{
-  margin: 0;
-  padding: 0;
-}
 body *{
-  margin: 0;
-  padding: 0;
+  color: #777;
+  font-family: Merriweather,Open Sans,Hiragino Sans GB,Microsoft YaHei,STHeiti,WenQuanYi Micro Hei,Helvetica,Arial,sans-serif;
 }
 
 footer{
   text-align: center;
-}
-
-a, a:hover, a:focus, a:visited{
-  color: #41B883;
-}
-
-.logo {
-  width: 243px;
-  height: 218px;
 }
 
 .page-enter-active, .page-leave-active{
@@ -71,5 +39,4 @@ ins { text-decoration: underline; }
 del { text-decoration: line-through; }
 mark { background: none; }
 input::-ms-clear { display: none !important; }
-body { font: 12px/1.5 \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, "Hiragino Sans GB", STHeiti, "WenQuanYi Micro Hei", "Droid Sans Fallback", SimSun, sans-serif;}
-a { text-decoration: none; color: #333; }
+a, a:hover, a:focus, a:visited { text-decoration: none; color: #777; font-family: inherit;font-style: inherit;font-weight: inherit; }

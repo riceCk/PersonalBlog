@@ -4,20 +4,20 @@
 * 描述：关于我
 */
 <template>
-  <div class="content_left about">
+  <div class="content about">
     <description />
-    <blog-comments title="关于" />
+    <ContentRight />
   </div>
 </template>
 
 <script>
   import Description from '../../components/about/Description'
-  import BlogComments from '../../components/about/BlogComments'
+  import ContentRight from '../../components/index/ContentRight'
 
   export default {
     components: {
 	  Description,
-	  BlogComments
+	  ContentRight
     }
   }
 </script>

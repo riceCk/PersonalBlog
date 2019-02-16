@@ -24,6 +24,10 @@ export default new Router({
         name: 'index',
         component: Index
       }, {
+		path: '/navMap',
+		name: 'navMap',
+		component: NavMap,
+	  }, {
         path: '/about',
         name: 'about',
         component: About
@@ -32,10 +36,6 @@ export default new Router({
         name: 'guestBook',
         component: GuestBook
       }]
-    },{
-      path: '/navMap',
-      name: 'navMap',
-	  component: NavMap,
     }, {
 	  path: '/everyDay',
 	  name: 'everyDay',

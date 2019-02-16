@@ -1,26 +1,19 @@
 .footer {
   width: 100%;
-  height: 60px;
-  background-color: #191818;
-  padding: 20px;
-  text-align: center;
   box-sizing: border-box;
-  ul {
-    display: inline-block;
+  margin: 30px auto 0;
+  padding: 20px;
+  border-top: 1px solid #e1e1e1;
+  footer {
+    display: flex;
+    justify-content: space-between;
+    width: 74%;
     margin: 0 auto;
-    text-align: center;
-    li {
-      display: inline-block;
-      color: #a2a2a2;
-      float: left;
-      font-size: 14px;
-      margin: 10px 5px 0;
-      cursor: pointer;
-      text-align: center;
+    max-width: 1000px;
+    height: 100%;
+    a {
+      margin-left: 10px;
     }
   }
-  p {
-    margin-top: 10px;
-    color: #a2a2a2;
-  }
 }
+

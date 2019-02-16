@@ -1,35 +1,48 @@
 .nav_map {
-  .title {
-    width: 100%;
-    text-align: center;
-    font-weight: 600;
-    line-height: 50px;
-    font-size: 20px;
+  max-width: 1000px;
+  margin: 0 auto 4.5rem;
+  width: 90vw;
+  h1 {
+    margin: 5px 0 25px 0;
+    font-size: 26px;
+    color: #695a5a;
+    &:before {
+      content: '#';
+      margin-right: 5px;
+    }
+  }
+  .tag_list {
+    padding-top: 40px;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+      li {
+        font-size: 10pt;
+        margin: 2px 5px 5px 0;
+        padding: 5px 10px;
+        text-transform: uppercase;
+        color: #666;
+        border: 1px solid #f0f0f0;
+        border-radius: 2px;
+        background-color: #f2f2f2;
+      }
+    }
   }
   .blog_list {
-    border: 1px solid #eee;
-    width: 95%;
-    padding: 10px;
-    margin: 10px auto;
-    font-size: 10px;
-    font-weight: 600;
-    span {
-      display: block;
+    margin-top: 15px;
+    .date-year {
+      margin: 15px 0;
+      font-size: 26px;
     }
-    ul {
-      padding: 10px 10px;
-      font-size: 14px;
-      font-weight: 600;
-      width: 100%;
-      margin: 10px auto;
+    .archives-ul {
+      margin: 15px 0;
       li {
-        margin-top: 5px;
-        cursor: pointer;
-        color: #000;
-        font-weight: 400;
-        display: block;
-        padding: 5px 0;
-        border-bottom: 1px dashed #eee;
+        margin: 20px 0;
+        font-size: 16px;
+        span {
+          margin-right: 20px;
+        }
       }
     }
   }

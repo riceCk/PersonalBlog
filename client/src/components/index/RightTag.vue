@@ -5,8 +5,11 @@
 */
 <template>
   <div class="right-module right-tag">
-    <div>随机标签云</div>
-    <a href="" :style="{color: randomColor, fontSize: randomSize}">asd</a>
+    <h3>标签云</h3>
+    <p>
+      <a v-for="i in 30" v-bind:style="{color:randomColor}">sdaf</a>
+    </p>
+
   </div>
 </template>
 

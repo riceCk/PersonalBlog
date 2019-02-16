@@ -4,21 +4,16 @@
 * 描述：
 */
 <template>
-  <div class="footer">
-    <ul>
-      <li>c/c++</li>
-      <li>c/c++</li>
-      <li>c/c++</li>
-      <li>c/c++</li>
-      <li>c/c++</li>
-      <li>c/c++</li>
-      <li>c/c++</li>
-      <li>c/c++</li>
-      <li>c/c++</li>
-      <li>c/c++</li>
-      <li>c/c++</li>
-    </ul>
-    <p>使用百度前必读使用百度前必读使用百度前必读使用百度前必读</p>
+  <div class="footer" id="footer">
+    <footer>
+      <div class="footer-left">
+        <span>© 1995-2019 · Code & Theme By</span>
+        <router-link to="/">rice</router-link>
+      </div>
+      <div class="footer-right">
+        <router-link to="/">皖ICP备17007346号-1 </router-link>
+      </div>
+    </footer>
   </div>
 </template>
 

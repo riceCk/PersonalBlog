@@ -11,79 +11,107 @@
 .content {
   position: relative;
   display: flex;
-  width: 90%;
+  width: 78%;
   max-width: 1170px;
   margin: 30px auto 0 auto;
   .content_left {
-    flex: 1;
+    width: 74%;
     padding: 0 20px 0 0;
     box-sizing: border-box;
   }
 
   .content_right {
-    width: 34%;
+    width: 24%;
     padding: 0 0 0 0;
     .right-module {
       display: inline-block;
       width: 100%;
-      background-color: #1f1f1f;
-      color: white;
-      border-radius: 10px;
       text-align: left;
-      padding: 0 15px 25px 15px;
       margin-bottom: 20px;
-      div {
-        display: block;
-        text-align: left;
-        font-size: 14px;
-        padding: 15px 5px 15px 0;
-        color: dodgerblue;
+      h3 {
+        letter-spacing: 1px;
+        padding-bottom: 5px;
+        font-weight: 300;
+        border-bottom: 1px solid #ddd;
+        font-size: 17px;
       }
-      & > a {
+      & > p {
+        margin: 20px 0;
         display: inline-block;
-        color: dodgerblue;
-        margin-right: 5px;
-        font-size: 14px;
-      }
-      & > ul > li{
-        color: white;
-        padding: 8px 0;
-        border-bottom: 1px solid gray;
+        word-wrap: break-word;
+        width: 100%;
         a {
-          font-size: 14px;
-          color: white;
+          margin-right: 10px;
         }
-        & > div {
-          padding: 5px 0;
-          span {
-            color: #fff;
+      }
+      & > ul {
+        padding: 20px 0;
+        & > li{
+          color: white;
+          padding: 8px 0;
+          a {
             font-size: 14px;
-            &.pull_right {
-              position: absolute;
-              right: 15px;
-            }
           }
-          p {
-            font-size: 14px;
-            color: #777;
+          & > div {
+            padding: 5px 0;
+            span {
+              color: #777;
+              font-size: 14px;
+              &.pull_right {
+                position: absolute;
+                right: 15px;
+              }
+            }
+            p {
+              font-size: 14px;
+              color: #777;
+            }
           }
         }
       }
       & > span {
         display: inline-block;
-        width: 50%;
-        height: 30px;
-        margin-top: 10px;
         a {
-          color: #fff;
-          font-size: 14px;
+          border: 1px solid #d9d9d9;
+          padding: 0 10px 0 10px;
+          color: #777;
+          white-space: nowrap;
+          margin: 5px 10px 5px 0;
+          font-size: 12px;
           line-height: 30px;
         }
       }
     }
   }
-}
 
+}
+@media screen and (max-width: 960px) {
+  .content_left {
+    width: 100% !important;
+  }
+  .content_right {
+    display: none !important;
+  }
+  #container {
+    .menu {
+      display: none;
+    }
+    .media-nav {
+      display: block;
+    }
+  }
+  #nav-btn-active {
+    display: flex;
+  }
+  #footer {
+    footer {
+      justify-content: space-around;
+    }
+    .footer-right {
+      display: none;
+    }
+  }
+}
 .ql-snow {
   .ql-picker-label::before,
   .ql-color-picker .ql-picker-label svg,

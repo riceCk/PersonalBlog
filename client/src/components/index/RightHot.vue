@@ -5,7 +5,7 @@
 */
 <template>
   <div class="right-module right-hot">
-    <div>最近热门</div>
+    <h3>最近热门</h3>
     <ul>
       <li><a href="">查看你的AWS服务已使用流量</a></li>
       <li><a href="">查看你的AWS服务已使用流量</a></li>
