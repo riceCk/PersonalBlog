@@ -1,7 +1,6 @@
 /**
  * 每日一句接口
  */
-let url = require('url');
 let queryString = require('querystring');
 let serviceSet = require('../service/ServiceSet');
 let timeUtil = require('../util/TimeUtil');
@@ -18,7 +17,7 @@ function editEveryDay (request, response) {
     postDate = queryString.parse(postDate);
 	response.writeHead(200, respUtil.writeHead);
 	if (postDate.content) {
-	  serviceSet.insertEveryDay(postDate.content, timeUtil.getNow(), function () {
+	  	serviceSet.insertEveryDay(postDate.content, timeUtil.getNow(), function () {
 		response.write(respUtil.writeResult('success', '添加成功', null))
 		response.end();
 		log('/editEveryDay 接口调用成功', 'web.log')

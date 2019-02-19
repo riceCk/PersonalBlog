@@ -5,7 +5,6 @@ let dbutil = require('./DBUtil');
 let log = require('../log');
 
 function insertEveryDay (content, ctime, success) {
-  console.log(content, ctime)
   let insertSql = 'insert into every_day (`content`, `ctime`) value(?, ?)';
   let params = [content, ctime];
   let connection = dbutil.createConnection();
@@ -33,3 +32,4 @@ function selectEveryDay (success) {
 }
 module.exports.insertEveryDay = insertEveryDay;
 module.exports.selectEveryDay = selectEveryDay;
+

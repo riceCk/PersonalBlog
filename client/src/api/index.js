@@ -5,6 +5,7 @@ let api = {
   getEditEveryDay (params) {
     return axios.post('/editEveryDay', params)
   },
+  // 查询每日一句接口
   getInquireEveryDay () {
     return axios.get('/inquireEveryDay')
   }

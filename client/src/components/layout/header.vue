@@ -11,7 +11,7 @@
         <router-link tag="li" :to="{name: 'home'}">首页</router-link>
         <router-link tag="li" :to="{name: 'navMap'}">地图</router-link>
         <router-link tag="li" :to="{name: 'about'}">关于</router-link>
-        <router-link tag="li" :to="{name: 'guestBook'}">留言</router-link>
+        <router-link tag="li" :to="{name: 'live2d'}">留言</router-link>
       </ul>
       <div class="media-nav" @click="onMenu">
         <div class="nav-btn">Menu</div>
@@ -23,7 +23,7 @@
           <router-link tag="li" :to="{name: 'home'}">首页</router-link>
           <router-link tag="li" :to="{name: 'navMap'}">地图</router-link>
           <router-link tag="li" :to="{name: 'about'}">关于</router-link>
-          <router-link tag="li" :to="{name: 'guestBook'}">留言</router-link>
+          <router-link tag="li" :to="{name: 'live2d'}">留言</router-link>
         </ul>
       </div>
     </transition>

@@ -89,5 +89,7 @@
 </script>
 
 <style scoped>
-
+  .el-button--primary {
+    color: #fff;
+  }
 </style>

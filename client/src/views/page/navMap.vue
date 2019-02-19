@@ -53,7 +53,6 @@
     created () {
       this.$http.get('http://archives.cn').then(res => {
         let { list } = res.data
-        console.log(list)
         this.list = list
       })
     }

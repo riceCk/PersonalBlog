@@ -1,0 +1,11 @@
+.insertArticle {
+  width: 78%;
+  max-width: 1170px;
+  margin: 30px auto 0 auto;
+  .title {
+    transform: translateY(50%);
+  }
+  .el-row {
+    margin: 10px 0;
+  }
+}
