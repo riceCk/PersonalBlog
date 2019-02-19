@@ -11,7 +11,7 @@ function insertEveryDay (content, ctime, success) {
   connection.connect();
   connection.query(insertSql, params, function (error, result) {
     if (error == null) {
-      success(result)
+      success(result);
     }else {
       log('insertEveryDay:\n' +  error, 'EveryDayDao.log')
     }

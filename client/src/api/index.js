@@ -8,6 +8,14 @@ let api = {
   // 查询每日一句接口
   getInquireEveryDay () {
     return axios.get('/inquireEveryDay')
+  },
+  postEditArticle (params) {
+    return axios.post('/insertArticle', params)
+  },
+  getBlogByPage (params) {
+    return axios.get('/queryBlogByPage', {
+      params: params
+    })
   }
 }
 

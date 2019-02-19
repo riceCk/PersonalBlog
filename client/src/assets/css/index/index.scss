@@ -20,10 +20,10 @@
     }
     .article_list {
       width: 100%;
-      border-top: 1px solid #E1E1E1;
-      padding: 40px 0;
-      box-sizing: border-box;
       .article {
+        border-top: 1px solid #E1E1E1;
+        padding: 40px 0;
+        box-sizing: border-box;
         background: white;
         display: inline-block;
         width: 100%;
@@ -43,6 +43,12 @@
         .article_content {
           font-size: 14px;
           margin-top: 10px;
+          line-height: 2;
+          overflow:hidden;
+          text-overflow:ellipsis;
+          display:-webkit-box;
+          -webkit-box-orient:vertical;
+          -webkit-line-clamp:3;
           //text-align: left;
           //word-wrap: break-word;
           //word-break: break-all;

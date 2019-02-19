@@ -6,20 +6,16 @@
 <template>
   <div class="insertArticle">
     <el-row>
-      <el-col :span="3" class="title">
-        <span>日志标题: </span>
-      </el-col>
-      <el-col :span="8">
-        <el-input v-model="formData.name" placeholder="请输入日志标题"> </el-input>
-      </el-col>
+      <span class="title">日志标题: </span>
+      <div class="input">
+        <el-input v-model="formData.title" placeholder="请输入日志标题" style="width: 220px"> </el-input>
+      </div>
     </el-row>
     <el-row>
-      <el-col :span="3" class="title">
-        <span>标&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp签: </span>
-      </el-col>
-      <el-col :span="8">
-        <el-input v-model="formData.tag" placeholder="请输入日志标题"> </el-input>
-      </el-col>
+      <span class="title">标&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp签: </span>
+      <div class="input">
+        <el-input v-model="formData.tag" placeholder="请输入日志标签" style="width: 220px;"> </el-input>
+      </div>
     </el-row>
     <el-row>
       <div class="edit_container">
@@ -47,7 +43,7 @@
 	data() {
 	  return {
 		formData: {
-		  name: '',
+		  title: '',
 		  content: '',
           tag: ''
         },
@@ -60,10 +56,16 @@
 	},
     methods: {
 	  addText () {
+        this.formData.tag = this.formData.tag || 'all'
         let postData = this.$qs.stringify(this.formData)
-        // api.getEditEveryDay(postData, res => {
-          // console.log(res)
-        // })
+        api.postEditArticle(postData).then(res => {
+          let { data } = res
+          if (data.status === 'success') {
+            this.formData.title = ''
+            this.formData.content = ''
+            this.formData.tag = ''
+          }
+        })
       }
     }
   }

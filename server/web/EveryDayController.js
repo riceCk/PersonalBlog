@@ -8,16 +8,17 @@ let respUtil = require('../util/RespUtil');
 let path = new Map();
 let log = require('../log.js');
 
-function editEveryDay (request, response) {
+function editEveryDay(request, response) {
   let postDate = '';
   request.on('data', function (data) {
 	postDate += data
   });
   request.on('end', function () {
-    postDate = queryString.parse(postDate);
+	postDate = queryString.parse(postDate);
 	response.writeHead(200, respUtil.writeHead);
 	if (postDate.content) {
-	  	serviceSet.insertEveryDay(postDate.content, timeUtil.getNow(), function () {
+	  serviceSet.insertEveryDay(postDate.content, timeUtil.getNow(), function (result) {
+	    console.log(result)
 		response.write(respUtil.writeResult('success', '添加成功', null))
 		response.end();
 		log('/editEveryDay 接口调用成功', 'web.log')
@@ -32,13 +33,14 @@ function editEveryDay (request, response) {
 
 path.set('/editEveryDay', editEveryDay);
 
-function inquireEveryDay (request, response) {
+function inquireEveryDay(request, response) {
   response.writeHead(200, respUtil.writeHead);
-  serviceSet.selectEveryDay(function(result) {
+  serviceSet.selectEveryDay(function (result) {
 	response.write(respUtil.writeResult('success', true, result));
 	response.end();
   })
 }
+
 path.set('/inquireEveryDay', inquireEveryDay);
 
 module.exports.path = path;

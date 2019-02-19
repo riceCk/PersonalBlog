@@ -9,7 +9,8 @@ app.use(express.static('.' + globalConfig.page_path));
 
 app.post('/editEveryDay', loader.get('/editEveryDay'));
 app.get('/inquireEveryDay', loader.get('/inquireEveryDay'));
-app.post('/insertArticle', loader.get('/insertArticle'))
+app.post('/insertArticle', loader.get('/insertArticle'));
+app.get('/queryBlogByPage', loader.get('/queryBlogByPage'));
 
 app.listen(globalConfig.port, () => {
   log('服务器已启动', 'server')
