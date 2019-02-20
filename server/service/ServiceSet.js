@@ -14,7 +14,10 @@ function insertArticle (title, content, tags, views, ctime, utime, success) {
   articleDao.insertArticle(title, content, tags, views, ctime, utime, success);
 }
 function queryBlogByPage(pageNum, pageSize, success) {
-  articleDao.queryBlogByPage(pageNum, pageSize, success)
+  articleDao.queryBlogByPage(pageNum, pageSize, success);
+}
+function queryBlogTotal (success) {
+  articleDao.queryBlogTotal(success);
 }
 
 function insertTag (tag, ctime, utime, success) {
@@ -34,3 +37,4 @@ module.exports.insertTag = insertTag;
 module.exports.queryTag = queryTag;
 module.exports.insertTagBlogMapping = insertTagBlogMapping;
 module.exports.queryBlogByPage = queryBlogByPage;
+module.exports.queryBlogTotal = queryBlogTotal;

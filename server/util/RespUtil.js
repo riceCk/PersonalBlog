@@ -1,5 +1,5 @@
-function writeResult (status, msg, data) {
-  return JSON.stringify({status: status, msg: msg, list: data})
+function writeResult (status, msg, data, total=0) {
+  return JSON.stringify({status: status, msg: msg, list: data, total})
 }
 let writeHead = {
   "Access-Control-Allow-Origin": "*",

@@ -7,15 +7,13 @@
   <div class="content_left">
     <every-day />
     <div class="article_list">
-      <div class="article" v-for="(item, index) in list" :key="index">
+      <div class="article" v-for="(item, index) in articleList" :key="index">
         <router-link to="/" class="article_title">{{item.title}}</router-link>
-        <div class="article_foot">发布于{{getCurDate(item.ctime)}} | 浏览（{{item.views}}） | Tags: es {{item.tags}}</div>
-        <p class="article_content" v-html="item.content">
-
-        </p>
+        <div class="article_foot">发布于{{getCurDate(item.ctime)}} | 浏览（{{item.views}}） | Tags: {{item.tags}}</div>
+        <p class="article_content" v-html="item.content"></p>
       </div>
     </div>
-    <div class="block">
+    <div class="page_tool">
       <el-pagination
               @size-change="handleSizeChange"
               @current-change="handleCurrentChange"
@@ -45,30 +43,36 @@
 		  pageSize: 5, // 每次显示的内容
 		  pageNum: 1  // 页数
         },
-        list: []
+		articleList: [],
+		message: 'Hello'
       }
     },
     created () {
 	  this.getPage()
     },
-	computed: {
-
+    computed: {
+	  getCurDate() {
+		return (dateTime) => util.getCurDate(dateTime)
+	  },
     },
     methods: {
-	  getCurDate(dateTime) {
-		return util.getCurDate(dateTime)
-	  },
+	  // getCurDate(dateTime) {
+		// return util.getCurDate(dateTime)
+	  // },
 	  getPage (){
 		api.getBlogByPage(this.pageInfo).then(res => {
-		  let { data } = res
-          this.list = data.list
+		  let { data } = res;
+          this.articleList  = data.list;
+          this.total = data.total
         })
 	  },
 	  handleSizeChange(val) {
-		console.log(`每页 ${val} 条`);
+		this.pageInfo.pageSize = val;
+		this.getPage();
 	  },
 	  handleCurrentChange(val) {
-		console.log(`当前页: ${val}`);
+	    this.pageInfo.pageNum = val;
+	    this.getPage();
 	  }
     }
   }

@@ -63,9 +63,21 @@ function queryBlogByPage(request, response) {
   let params = url.parse(request.url, true).query;
   response.writeHead(200, respUtil.writeHead);
   serviceSet.queryBlogByPage(Number(params.pageNum), Number(params.pageSize), function(result) {
-    response.write(respUtil.writeResult('success', true, result))
-	response.end();
+    serviceSet.queryBlogTotal(function(total) {
+	  result = imgFilter(result);
+	  response.write(respUtil.writeResult('success', true, result, total[0].count));
+	  response.end();
+	});
+
   })
+}
+function imgFilter (result) {
+  for (let i = 0; i <result.length; i++) {
+    result[i].content = result[i].content.replace(/<img[\w\W]*>/g, "");
+	result[i].content = result[i].content.replace(/<[\w\W]{1,5}>/g, "");
+	result[i].content = result[i].content.substring(0, 300);
+  }
+  return result
 }
 
 path.set('/queryBlogByPage', queryBlogByPage);

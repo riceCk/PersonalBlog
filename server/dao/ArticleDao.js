@@ -35,6 +35,21 @@ function queryBlogByPage(pageNum, pageSize, success) {
   });
   connection.end();
 }
-
+function queryBlogTotal (success) {
+  let insertSql = 'select count(1) as count from blog;';
+  let params = [];
+  let connection = dbutil.createConnection();
+  connection.connect();
+  connection.query(insertSql, params, function(error, result) {
+	if (error == null) {
+	  success(result);
+	} else {
+	  console.log(error);
+	  log('queryBlogTotal:\n' +  error, 'Article.log')
+	}
+  });
+  connection.end();
+}
 module.exports.insertArticle = insertArticle;
 module.exports.queryBlogByPage = queryBlogByPage;
+module.exports.queryBlogTotal = queryBlogTotal;
