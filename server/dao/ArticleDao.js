@@ -50,6 +50,55 @@ function queryBlogTotal (success) {
   });
   connection.end();
 }
+
+function queryBlogByDetail (id, success) {
+  let insertSql = 'select * from blog where id = ?';
+  let params = [id];
+  let connection = dbutil.createConnection();
+  connection.connect();
+  connection.query(insertSql, params, function (error, result) {
+	if (error == null) {
+	  success(result);
+	} else {
+	  console.log(error);
+	  log('queryBlogByDetail:\n' +  error, 'Article.log')
+	}
+  })
+  connection.end();
+}
+function queryBlogByNext (id, success) {
+  let insertSql = 'select id,title from blog where id < ? order by id desc limit 1';
+  let params = [id];
+  let connection = dbutil.createConnection();
+  connection.connect();
+  connection.query(insertSql, params, function (error, result) {
+	if (error == null) {
+	  success(result);
+	} else {
+	  console.log(error);
+	  log('queryBlogByDetail:\n' +  error, 'Article.log')
+	}
+  })
+  connection.end();
+}
+function queryBlogByPrevious (id, success) {
+  let insertSql = 'select id,title from blog where id > ? order by id asc limit 1';
+  let params = [id];
+  let connection = dbutil.createConnection();
+  connection.connect();
+  connection.query(insertSql, params, function (error, result) {
+	if (error == null) {
+	  success(result);
+	} else {
+	  console.log(error);
+	  log('queryBlogByDetail:\n' +  error, 'Article.log')
+	}
+  })
+  connection.end();
+}
 module.exports.insertArticle = insertArticle;
 module.exports.queryBlogByPage = queryBlogByPage;
 module.exports.queryBlogTotal = queryBlogTotal;
+module.exports.queryBlogByDetail = queryBlogByDetail;
+module.exports.queryBlogByNext = queryBlogByNext;
+module.exports.queryBlogByPrevious = queryBlogByPrevious;

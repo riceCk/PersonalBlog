@@ -8,9 +8,11 @@
     <every-day />
     <div class="article_list">
       <div class="article" v-for="(item, index) in articleList" :key="index">
-        <router-link to="/" class="article_title">{{item.title}}</router-link>
+        <router-link :to="{name: 'detail', query: {id: item.id}}" class="article_title">{{item.title}}</router-link>
         <div class="article_foot">发布于{{getCurDate(item.ctime)}} | 浏览（{{item.views}}） | Tags: {{item.tags}}</div>
-        <p class="article_content" v-html="item.content"></p>
+        <router-link  :to="{name: 'detail', query: {id: item.id}}" class="article_content">
+          {{item.content}}
+        </router-link>
       </div>
     </div>
     <div class="page_tool">
@@ -56,9 +58,6 @@
 	  },
     },
     methods: {
-	  // getCurDate(dateTime) {
-		// return util.getCurDate(dateTime)
-	  // },
 	  getPage (){
 		api.getBlogByPage(this.pageInfo).then(res => {
 		  let { data } = res;

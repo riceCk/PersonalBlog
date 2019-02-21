@@ -1,0 +1,44 @@
+.detail {
+  width: 78%;
+  max-width: 1170px;
+  margin: 30px auto 0 auto;
+  .detail-title {
+    font-size: 1.3em;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  .detail-meta {
+    color: #657786;
+    time {
+      font-size: 13px;
+    }
+    a {
+
+    }
+  }
+  .detail-content {
+    margin-top: 30px;
+    overflow: visible;
+    word-break: break-all;
+  }
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    & > span {
+      display: inline-block;
+      cursor: pointer;
+    }
+    .nav-nex a,
+    .nav-previous a {
+      display: inline-block;
+      max-width: 400px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      vertical-align: bottom;
+      cursor: pointer;
+    }
+  }
+}

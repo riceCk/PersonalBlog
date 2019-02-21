@@ -8,7 +8,7 @@
     <footer>
       <div class="footer-left">
         <span>© 1995-2019 · Code & Theme By</span>
-        <router-link to="/">rice</router-link>
+        <router-link :to="{name: 'insertArticle'}">rice</router-link>
       </div>
       <div class="footer-right">
         <router-link to="/">皖ICP备17007346号-1 </router-link>

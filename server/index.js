@@ -11,6 +11,8 @@ app.post('/editEveryDay', loader.get('/editEveryDay'));
 app.get('/inquireEveryDay', loader.get('/inquireEveryDay'));
 app.post('/insertArticle', loader.get('/insertArticle'));
 app.get('/queryBlogByPage', loader.get('/queryBlogByPage'));
+app.get('/queryBlogByDetail', loader.get('/queryBlogByDetail'));
+app.get('/queryBlogByLimit', loader.get('/queryBlogByLimit'));
 
 app.listen(globalConfig.port, () => {
   log('服务器已启动', 'server')

@@ -18,7 +18,6 @@ function editEveryDay(request, response) {
 	response.writeHead(200, respUtil.writeHead);
 	if (postDate.content) {
 	  serviceSet.insertEveryDay(postDate.content, timeUtil.getNow(), function (result) {
-	    console.log(result)
 		response.write(respUtil.writeResult('success', '添加成功', null))
 		response.end();
 		log('/editEveryDay 接口调用成功', 'web.log')

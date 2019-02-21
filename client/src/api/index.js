@@ -16,6 +16,16 @@ let api = {
     return axios.get('/queryBlogByPage', {
       params: params
     })
+  },
+  getBlogByDetail (params) {
+	return axios.get('/queryBlogByDetail', {
+	  params: params
+	})
+  },
+  getBlogByLimit (params) {
+    return axios.get('/queryBlogByLimit', {
+      params: params
+    })
   }
 }
 

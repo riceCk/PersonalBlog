@@ -53,7 +53,6 @@ function insertTag(tag, blogId) {
 }
 
 function insertTagBlogMapping(tagId, blogId) {
-  debugger
   serviceSet.insertTagBlogMapping(tagId, blogId, timeUtil.getNow(), timeUtil.getNow(), function (result) {
 	log(`tagId:\n${tagId}\n blog:\n${blogId} \n插入标签博客三表成功`, 'BlogController.log')
   })
@@ -62,14 +61,19 @@ function insertTagBlogMapping(tagId, blogId) {
 function queryBlogByPage(request, response) {
   let params = url.parse(request.url, true).query;
   response.writeHead(200, respUtil.writeHead);
-  serviceSet.queryBlogByPage(Number(params.pageNum), Number(params.pageSize), function(result) {
-    serviceSet.queryBlogTotal(function(total) {
-	  result = imgFilter(result);
-	  response.write(respUtil.writeResult('success', true, result, total[0].count));
-	  response.end();
-	});
-
-  })
+  if (params.pageNum && params.pageSize) {
+	serviceSet.queryBlogByPage(Number(params.pageNum), Number(params.pageSize), function(result) {
+	  serviceSet.queryBlogTotal(function(total) {
+		result = imgFilter(result);
+		response.write(respUtil.writeResult('success', true, result, total[0].count));
+		response.end();
+	  });
+	})
+  } else {
+	response.write(respUtil.writeResult('参数异常', false, null));
+	response.end();
+	log('/queryBlogByPage 接口参数异常', 'web.log');
+  }
 }
 function imgFilter (result) {
   for (let i = 0; i <result.length; i++) {
@@ -81,5 +85,43 @@ function imgFilter (result) {
 }
 
 path.set('/queryBlogByPage', queryBlogByPage);
+
+function queryBlogByDetail (request, response) {
+  let params = url.parse(request.url, true).query;
+  response.writeHead(200, respUtil.writeHead);
+  if (params.id) {
+	serviceSet.queryBlogByDetail(params.id, function (result) {
+	  response.write(respUtil.writeResult('success', true, result[0]));
+	  response.end();
+	})
+  } else {
+	response.write(respUtil.writeResult('参数异常', false, null));
+	response.end();
+  }
+
+}
+path.set('/queryBlogByDetail', queryBlogByDetail);
+
+function queryBlogByLimit(request, response) {
+  let params = url.parse(request.url, true).query;
+  response.writeHead(200, respUtil.writeHead);
+  if (params.id) {
+	serviceSet.queryBlogByNext(params.id, function(nextList) {
+	  let limit = {};
+	  limit.next = nextList[0] || '';
+	  serviceSet.queryBlogByPrevious(params.id, function (previousList) {
+		limit.previous = previousList[0] || '';
+		response.write(respUtil.writeResult('success', true, limit));
+		response.end();
+	  })
+	})
+  } else {
+	response.write(respUtil.writeResult('参数异常', false, null));
+	response.end();
+  }
+
+
+}
+path.set('/queryBlogByLimit', queryBlogByLimit);
 
 module.exports.path = path;

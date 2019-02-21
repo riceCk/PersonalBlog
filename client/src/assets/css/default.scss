@@ -113,6 +113,13 @@
   #nav-btn-active {
     display: flex;
   }
+  #pagination {
+    .nav-nex a,
+    .nav-previous a {
+      max-width: 200px;
+    }
+  }
+
   #footer {
     footer {
       justify-content: space-around;
