@@ -26,6 +26,12 @@ let api = {
     return axios.get('/queryBlogByLimit', {
       params: params
     })
+  },
+  queryRandomTags () {
+	return axios.get('/queryRandomTags')
+  },
+  queryAllBlog () {
+    return axios.get('/queryAllBlog')
   }
 }
 

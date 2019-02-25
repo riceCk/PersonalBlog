@@ -29,6 +29,9 @@ function queryBlogByNext (id, success) {
 function queryBlogByPrevious (id, success) {
   articleDao.queryBlogByPrevious(id, success);
 }
+function queryAllBlog (success) {
+  articleDao.queryAllBlog(success);
+}
 
 
 function insertTag (tag, ctime, utime, success) {
@@ -36,6 +39,9 @@ function insertTag (tag, ctime, utime, success) {
 }
 function queryTag (tag, success) {
   TagsDao.queryTag (tag, success);
+}
+function queryAllTag (success) {
+  TagsDao.queryAllTag(success);
 }
 
 
@@ -53,3 +59,5 @@ module.exports.queryBlogTotal = queryBlogTotal;
 module.exports.queryBlogByDetail = queryBlogByDetail;
 module.exports.queryBlogByNext = queryBlogByNext;
 module.exports.queryBlogByPrevious = queryBlogByPrevious;
+module.exports.queryAllTag = queryAllTag;
+module.exports.queryAllBlog = queryAllBlog;

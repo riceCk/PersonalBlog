@@ -96,9 +96,28 @@ function queryBlogByPrevious (id, success) {
   })
   connection.end();
 }
+
+function queryAllBlog (success) {
+  let insertSql = 'select * from blog order by ctime desc';
+  let params = [];
+  let connection = dbutil.createConnection();
+  connection.connect();
+  connection.query(insertSql, params, function (error, result) {
+    if (error == null) {
+      success(result);
+	} else {
+      console.log(error);
+	  log('queryAllBlog: \n' + error, 'Article.log');
+	}
+  })
+  connection.end();
+}
+
+
 module.exports.insertArticle = insertArticle;
 module.exports.queryBlogByPage = queryBlogByPage;
 module.exports.queryBlogTotal = queryBlogTotal;
 module.exports.queryBlogByDetail = queryBlogByDetail;
 module.exports.queryBlogByNext = queryBlogByNext;
 module.exports.queryBlogByPrevious = queryBlogByPrevious;
+module.exports.queryAllBlog = queryAllBlog;

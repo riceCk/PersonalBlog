@@ -25,14 +25,21 @@
         <span v-else>没有了，已经是最后文章</span>
       </div>
     </div>
+    <div class="gitalk">
+      <gitalk></gitalk>
+    </div>
   </div>
 </template>
 
 <script>
   import api from '../../api/index';
   import util from '../../util/index';
+  import Gitalk from '../../components/gitalk/Gitalk'
 
   export default {
+    components: {
+      Gitalk
+    },
 	data() {
 	  return {
 		detailId: this.$route.query.id,

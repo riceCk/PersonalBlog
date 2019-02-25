@@ -7,25 +7,41 @@
   <div class="right-module right-tag">
     <h3>标签云</h3>
     <p>
-      <a v-for="i in 30" v-bind:style="{color:randomColor}">sdaf</a>
+      <a v-for="(item, index) in tags" :key="index" :style="{color: randomColor(), fontSize: randomSize()}">{{item.tag}}</a>
     </p>
-
   </div>
 </template>
 
 <script>
+  import api from '../../api/index'
   export default {
-    computed: {
-      randomColor () {
-        let red = Math.random() * 255;
-        let green = Math.random() * 255;
-        let blue = Math.random() * 255;
-        return `rgb(${red}, ${green}, ${blue})`
-      },
-      randomSize () {
-        let size = (Math.random() * 20 + 12) + 'px'
-        return size
+    data () {
+      return {
+        tags: []
       }
+    },
+    created () {
+      this.getTags();
+    },
+    computed: {
+    },
+    methods: {
+      getTags () {
+        api.queryRandomTags().then(res => {
+         let { data } = res
+          this.tags = data.list
+        })
+      },
+	  randomColor () {
+		let red = Math.random() * 255;
+		let green = Math.random() * 255;
+		let blue = Math.random() * 255;
+		return `rgb(${red}, ${green}, ${blue})`
+	  },
+	  randomSize () {
+		let size = (Math.random() * 20 + 12) + 'px'
+		return size
+	  }
     }
   }
 </script>

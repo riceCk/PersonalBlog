@@ -124,4 +124,13 @@ function queryBlogByLimit(request, response) {
 }
 path.set('/queryBlogByLimit', queryBlogByLimit);
 
+function queryAllBlog (request, response) {
+  response.writeHead(200, respUtil.writeHead);
+  serviceSet.queryAllBlog(function(result) {
+	response.write(respUtil.writeResult('success', true, result));
+	response.end();
+  })
+}
+
+path.set('/queryAllBlog', queryAllBlog);
 module.exports.path = path;

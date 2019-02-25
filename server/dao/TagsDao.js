@@ -32,5 +32,19 @@ function queryTag (tag, success) {
 	}
   })
 }
+
+function queryAllTag (success) {
+  let querySql = 'select * from tags;';
+  let params = [];
+  let connection = dbutil.createConnection();
+  connection.query(querySql, params, function(error, result) {
+	if (error == null) {
+	  success(result)
+	} else {
+	  log('selectEveryDay:\n' +  error, 'EveryDayDao.log')
+	}
+  })
+}
 module.exports.insertTag = insertTag;
 module.exports.queryTag = queryTag;
+module.exports.queryAllTag = queryAllTag;
