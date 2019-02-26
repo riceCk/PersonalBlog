@@ -4,7 +4,7 @@ let log = require('./log');
 
 let controllerSet = [];
 let pathMap = new Map();
-console.log(globalConfig['web_path'])
+console.log(globalConfig)
 let files = fs.readdirSync(globalConfig['web_path']);
 if (files.length === 0) {
   return
