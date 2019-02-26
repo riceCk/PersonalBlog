@@ -22,6 +22,11 @@ let api = {
 	  params: params
 	})
   },
+  queryByTags (params) {
+	return axios.get('/queryByTags', {
+	  params: params
+    })
+  },
   getBlogByLimit (params) {
     return axios.get('/queryBlogByLimit', {
       params: params
@@ -32,7 +37,10 @@ let api = {
   },
   queryAllBlog () {
     return axios.get('/queryAllBlog')
-  }
+  },
+  queryHotBog () {
+    return axios.get('/queryHotBlog')
+  },
 }
 
 export default api

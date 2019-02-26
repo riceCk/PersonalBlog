@@ -7,19 +7,33 @@
   <div class="right-module right-hot">
     <h3>最近热门</h3>
     <ul>
-      <li><a href="">查看你的AWS服务已使用流量</a></li>
-      <li><a href="">查看你的AWS服务已使用流量</a></li>
-      <li><a href="">查看你的AWS服务已使用流量</a></li>
-      <li><a href="">查看你的AWS服务已使用流量</a></li>
-      <li><a href="">查看你的AWS服务已使用流量</a></li>
-      <li><a href="">查看你的AWS服务已使用流量</a></li>
-      <li><a href="">查看你的AWS服务已使用流量</a></li>
+      <li v-for="(item, index) in hotList" :key="index">
+        <router-link :to="{name: 'detail', query: {id: item.id}}">{{item.title}}</router-link>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
+  import api from '../../api/index'
+
   export default {
+    data() {
+      return {
+        hotList: ''
+      }
+    },
+    created () {
+      this.getHotBlog()
+    },
+    methods: {
+      getHotBlog() {
+        api.queryHotBog().then(res => {
+          let { data } = res
+          this.hotList = data.list
+        })
+      }
+    }
   }
 </script>
 

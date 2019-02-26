@@ -7,7 +7,7 @@
   <div class="content_right">
     <right-tag />
     <right-hot />
-    <right-evaluation />
+    <!--<right-evaluation />-->
     <right-link />
   </div>
 </template>

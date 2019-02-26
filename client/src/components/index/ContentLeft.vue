@@ -43,7 +43,7 @@
 		total: 0,
 		pageInfo: {
 		  pageSize: 5, // 每次显示的内容
-		  pageNum: 1  // 页数
+		  pageNum: 1,  // 页数
         },
 		articleList: [],
 		message: 'Hello'
@@ -59,11 +59,20 @@
     },
     methods: {
 	  getPage (){
-		api.getBlogByPage(this.pageInfo).then(res => {
-		  let { data } = res;
-          this.articleList  = data.list;
-          this.total = data.total
-        })
+        if (!this.$route.query.tag || this.$route.query.tag === 'all') {
+		  api.getBlogByPage(this.pageInfo).then(res => {
+			let { data } = res;
+			this.articleList  = data.list;
+			this.total = data.total
+		  })
+        } else {
+          let data = {...this.pageInfo, tag: this.$route.query.tag}
+          api.queryByTags(data).then(res => {
+			let { data } = res;
+			this.articleList  = data.list;
+			this.total = data.total
+          })
+		}
 	  },
 	  handleSizeChange(val) {
 		this.pageInfo.pageSize = val;

@@ -51,6 +51,38 @@ function queryBlogTotal (success) {
   connection.end();
 }
 
+function queryByTagsTotal (tag, success) {
+  let insertSql = 'select count(1) as count from blog where tags = ?;';
+  let params = [tag];
+  let connection = dbutil.createConnection();
+  connection.connect();
+  connection.query(insertSql, params, function(error, result) {
+	if (error == null) {
+	  success(result);
+	} else {
+	  console.log(error);
+	  log('queryByTagsTotal:\n' +  error, 'Article.log')
+	}
+  });
+  connection.end();
+}
+
+function queryByTags (pageNum, pageSize, tag, success) {
+  let insertSql = 'select * from blog where tags = ? order by id desc limit ?, ?';
+  let params = [tag, (pageNum - 1) * pageSize, pageSize];
+  let connection = dbutil.createConnection();
+  connection.connect();
+  connection.query(insertSql, params, function(error, result) {
+	if (error == null) {
+	  success(result);
+	} else {
+	  console.log(error);
+	  log('queryBlogByPage:\n' +  error, 'Article.log')
+	}
+  });
+  connection.end();
+}
+
 function queryBlogByDetail (id, success) {
   let insertSql = 'select * from blog where id = ?';
   let params = [id];
@@ -113,6 +145,37 @@ function queryAllBlog (success) {
   connection.end();
 }
 
+function addViews (id, success){
+  let querySql = 'update blog set views = views + 1 where id = ?'
+  let params = [id];
+  let connection = dbutil.createConnection();
+  connection.connect();
+  connection.query(querySql, params, function (error, result) {
+	if (error == null) {
+	  success(result);
+	} else {
+	  console.log(error);
+	  log('addViews: \n' + error, 'Article.log');
+	}
+  })
+  connection.end();
+}
+
+function queryHotBlog (size, success) {
+  let querySql = 'select id,title from blog order by views desc limit ?;'
+  let params = [size];
+  let connection = dbutil.createConnection();
+  connection.connect();
+  connection.query(querySql, params, function (error, result) {
+	if (error == null) {
+	  success(result);
+	} else {
+	  console.log(error);
+	  log('addViews: \n' + error, 'Article.log');
+	}
+  })
+  connection.end();
+}
 
 module.exports.insertArticle = insertArticle;
 module.exports.queryBlogByPage = queryBlogByPage;
@@ -121,3 +184,7 @@ module.exports.queryBlogByDetail = queryBlogByDetail;
 module.exports.queryBlogByNext = queryBlogByNext;
 module.exports.queryBlogByPrevious = queryBlogByPrevious;
 module.exports.queryAllBlog = queryAllBlog;
+module.exports.addViews = addViews;
+module.exports.queryHotBlog = queryHotBlog;
+module.exports.queryByTags = queryByTags;
+module.exports.queryByTagsTotal = queryByTagsTotal;

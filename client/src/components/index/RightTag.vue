@@ -7,7 +7,13 @@
   <div class="right-module right-tag">
     <h3>标签云</h3>
     <p>
-      <a v-for="(item, index) in tags" :key="index" :style="{color: randomColor(), fontSize: randomSize()}">{{item.tag}}</a>
+      <a v-for="(item, index) in tags" :key="index"
+         href=''
+         :style="{color: randomColor(), fontSize: randomSize(), cursor: 'pointer'}"
+         @click="clickTags(item.tag)"
+      >
+        {{item.tag}}
+      </a>
     </p>
   </div>
 </template>
@@ -41,7 +47,15 @@
 	  randomSize () {
 		let size = (Math.random() * 20 + 12) + 'px'
 		return size
-	  }
+	  },
+	  clickTags(tag) {
+		if (!tag) {
+		  return
+		}
+		this.$router.push({
+		  path: `/index/?tag=${tag}`,
+		})
+      }
     }
   }
 </script>

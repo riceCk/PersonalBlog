@@ -15,6 +15,8 @@ app.get('/queryBlogByDetail', loader.get('/queryBlogByDetail'));
 app.get('/queryBlogByLimit', loader.get('/queryBlogByLimit'));
 app.get('/queryRandomTags', loader.get('/queryRandomTags'));
 app.get('/queryAllBlog', loader.get('/queryAllBlog'));
+app.get('/queryHotBlog', loader.get('/queryHotBlog'));
+app.get('/queryByTags', loader.get('/queryByTags'));
 
 app.listen(globalConfig.port, () => {
   log('服务器已启动', 'server')

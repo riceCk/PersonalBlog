@@ -75,6 +75,26 @@ function queryBlogByPage(request, response) {
 	log('/queryBlogByPage 接口参数异常', 'web.log');
   }
 }
+
+function queryByTags(request, response) {
+  let params = url.parse(request.url, true).query;
+  response.writeHead(200, respUtil.writeHead);
+  if (params.pageNum && params.pageSize) {
+	serviceSet.queryByTags(Number(params.pageNum), Number(params.pageSize), params.tag, function(result) {
+	  serviceSet.queryByTagsTotal(params.tag, function(total) {
+		result = imgFilter(result);
+		response.write(respUtil.writeResult('success', true, result, total[0].count));
+		response.end();
+	  });
+	})
+  } else {
+	response.write(respUtil.writeResult('参数异常', false, null));
+	response.end();
+	log('/queryByTags 接口参数异常', 'web.log');
+  }
+}
+path.set('/queryByTags', queryByTags);
+
 function imgFilter (result) {
   for (let i = 0; i <result.length; i++) {
     result[i].content = result[i].content.replace(/<img[\w\W]*>/g, "");
@@ -93,6 +113,7 @@ function queryBlogByDetail (request, response) {
 	serviceSet.queryBlogByDetail(params.id, function (result) {
 	  response.write(respUtil.writeResult('success', true, result[0]));
 	  response.end();
+	  serviceSet.addViews(params.id, function(result) {})
 	})
   } else {
 	response.write(respUtil.writeResult('参数异常', false, null));
@@ -101,6 +122,15 @@ function queryBlogByDetail (request, response) {
 
 }
 path.set('/queryBlogByDetail', queryBlogByDetail);
+
+function queryAllBlog (request, response) {
+  response.writeHead(200, respUtil.writeHead);
+  serviceSet.queryAllBlog(function(result) {
+	response.write(respUtil.writeResult('success', true, result));
+	response.end();
+  })
+}
+path.set('/queryAllBlog', queryAllBlog);
 
 function queryBlogByLimit(request, response) {
   let params = url.parse(request.url, true).query;
@@ -124,13 +154,14 @@ function queryBlogByLimit(request, response) {
 }
 path.set('/queryBlogByLimit', queryBlogByLimit);
 
-function queryAllBlog (request, response) {
+function queryHotBlog(request, response) {
   response.writeHead(200, respUtil.writeHead);
-  serviceSet.queryAllBlog(function(result) {
+  serviceSet.queryHotBlog(7, function(result) {
 	response.write(respUtil.writeResult('success', true, result));
 	response.end();
   })
 }
 
-path.set('/queryAllBlog', queryAllBlog);
+path.set('/queryHotBlog', queryHotBlog);
+
 module.exports.path = path;

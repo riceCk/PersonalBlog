@@ -17,6 +17,12 @@ function insertArticle (title, content, tags, views, ctime, utime, success) {
 function queryBlogByPage(pageNum, pageSize, success) {
   articleDao.queryBlogByPage(pageNum, pageSize, success);
 }
+function queryByTags (pageNum, pageSize, tag, success) {
+  articleDao.queryByTags(pageNum, pageSize, tag, success);
+}
+function queryByTagsTotal (tag, success) {
+  articleDao.queryByTagsTotal(tag, success);
+}
 function queryBlogTotal (success) {
   articleDao.queryBlogTotal(success);
 }
@@ -29,10 +35,15 @@ function queryBlogByNext (id, success) {
 function queryBlogByPrevious (id, success) {
   articleDao.queryBlogByPrevious(id, success);
 }
-function queryAllBlog (success) {
-  articleDao.queryAllBlog(success);
+function queryAllBlog (tag, success) {
+  articleDao.queryAllBlog(tag, success);
 }
-
+function addViews (id, success) {
+  articleDao.addViews(id, success);
+}
+function queryHotBlog(size, success) {
+  articleDao.queryHotBlog(size, success);
+}
 
 function insertTag (tag, ctime, utime, success) {
   TagsDao.insertTag(tag, ctime, utime, success);
@@ -61,3 +72,7 @@ module.exports.queryBlogByNext = queryBlogByNext;
 module.exports.queryBlogByPrevious = queryBlogByPrevious;
 module.exports.queryAllTag = queryAllTag;
 module.exports.queryAllBlog = queryAllBlog;
+module.exports.addViews = addViews;
+module.exports.queryHotBlog = queryHotBlog;
+module.exports.queryByTags = queryByTags;
+module.exports.queryByTagsTotal = queryByTagsTotal;
