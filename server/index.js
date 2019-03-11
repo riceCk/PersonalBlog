@@ -3,9 +3,10 @@ let globalConfig = require('./config.js');
 let log = require('./log.js');
 let loader = require('./loader');
 let app = new express();
+const path = require('path')
 
-
-app.use(express.static('.' + globalConfig.page_path));
+// app.use(express.static('../' + globalConfig.page_path));
+app.use(express.static(path.resolve(__dirname, '../dist')));
 
 app.post('/editEveryDay', loader.get('/editEveryDay'));
 app.get('/inquireEveryDay', loader.get('/inquireEveryDay'));
