@@ -14,9 +14,9 @@
 	data(){
 	  return{
 		gitalk: new Gitalk({
-		  clientID: "0c2918419f313724fc17",
-		  clientSecret: "3b46983c3da015ed75e82ab75c69cd1a94094cdb",
-		  repo: "PersonalBlog",
+		  clientID: "3d0c4edc859d29945f62",
+		  clientSecret: "2cf0b97c6b48531def871de90dfd0214386e2b40",
+		  repo: "gitalk",
 		  owner: "riceCk",
 		  admin: ["riceCk"],
 		  id: window.location.hash, // 默认为pathname,如果你也是像我这样用vue搭建的，我建议使用hash，原因具体后面会讨论到。

@@ -6,7 +6,7 @@ let app = new express();
 const path = require('path')
 
 // app.use(express.static('../' + globalConfig.page_path));
-app.use(express.static(path.resolve(__dirname, '../dist')));
+app.use(express.static(path.resolve(__dirname, '../client/dist')));
 
 app.post('/editEveryDay', loader.get('/editEveryDay'));
 app.get('/inquireEveryDay', loader.get('/inquireEveryDay'));
