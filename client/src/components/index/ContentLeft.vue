@@ -9,7 +9,10 @@
     <div class="article_list">
       <div class="article" v-for="(item, index) in articleList" :key="index">
         <router-link :to="{name: 'detail', query: {id: item.id}}" class="article_title">{{item.title}}</router-link>
-        <div class="article_foot">发布于{{getCurDate(item.ctime)}} | 浏览（{{item.views}}） | Tags: {{item.tags}}</div>
+        <div class="article_foot">
+          发布于{{getCurDate(item.ctime)}} | 浏览（{{item.views}}） | Tags: {{item.tags}}
+          <span class="article_btn" v-auth="900407" @click="deleteBlog(item.id)">删除</span>
+        </div>
         <router-link  :to="{name: 'detail', query: {id: item.id}}" class="article_content">
           {{item.content}}
         </router-link>
@@ -22,7 +25,7 @@
               :current-page.sync="pageInfo.pageNum"
               :page-sizes="[5, 10, 20, 40]"
               :page-size="pageInfo.pageSize"
-              layout="total, sizes, prev, pager, next, jumper"
+              :layout="layout"
               :total=total>
       </el-pagination>
     </div>
@@ -39,6 +42,7 @@
 	  EveryDay,
     },
     data() {
+      let self = this
       return {
 		total: 0,
 		pageInfo: {
@@ -46,7 +50,9 @@
 		  pageNum: 1,  // 页数
         },
 		articleList: [],
-		message: 'Hello'
+		message: 'Hello',
+        initWidth: document.documentElement.clientWidth,
+		layout: Number(document.documentElement.clientWidth) >= 960 ? 'total, sizes, prev, pager, next, jumper' : 'prev, pager, next'
       }
     },
     created () {
@@ -56,6 +62,9 @@
 	  getCurDate() {
 		return (dateTime) => util.getCurDate(dateTime)
 	  },
+    },
+    mounted () {
+	  this.showWidth()
     },
     methods: {
 	  getPage (){
@@ -81,7 +90,28 @@
 	  handleCurrentChange(val) {
 	    this.pageInfo.pageNum = val;
 	    this.getPage();
-	  }
+	  },
+	  showWidth () {
+        window.onresize = () => {
+          this.initWidth = document.documentElement.clientWidth
+		  this.layout = Number(this.initWidth) >= 960 ? 'total, sizes, prev, pager, next, jumper' : 'prev, pager, next'
+        }
+      },
+      // 删除博客
+	  deleteBlog (id) {
+	    api.deleteBlog({id: id}).then(res => {
+	      let { data } = res
+          if (data.msg) {
+			this.$message({
+			  message: '删除成功',
+			  type: 'success'
+			});
+			this.getPage()
+          } else {
+			this.$message.error('操作过快了！')
+          }
+        })
+      }
     }
   }
 </script>

@@ -9,8 +9,9 @@
     <div class="detail-meta">
       发布于
       <time :datetime="detailList.utime">{{getCurDate(detailList.utime)}}</time>
-      /
+      / <em>Tag:</em>
       <router-link to="/">{{detailList.tags}}</router-link>
+      <router-link tag="span" :to="{name: 'insertArticle', query: {id: this.detailId}}" class="detail-edit">编辑</router-link>
     </div>
     <div class="detail-content" v-html="detailList.content"></div>
     <div class="pagination" id="pagination">

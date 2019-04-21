@@ -16,7 +16,7 @@ function insertArticle(request, response) {
   });
   request.on('end', function () {
 	postDate = queryString.parse(postDate);
-	response.writeHead(200, respUtil.writeHead)
+	response.writeHead(200, respUtil.writeHead);
 	if (postDate.title && postDate.content) {
 	  serviceSet.insertArticle(postDate.title, postDate.content, postDate.tag, 0, timeUtil.getNow(), timeUtil.getNow(), function (result) {
 		response.write(respUtil.writeResult('success', '添加成功', null))
@@ -29,12 +29,35 @@ function insertArticle(request, response) {
 	} else {
 	  response.write(respUtil.writeResult('error', '参数异常', null))
 	  response.end();
-	  log('/editEveryDay 接口参数异常', 'web.log')
+	  log('/insertArticle 接口参数异常', 'web.log')
 	}
   })
 }
 
 path.set('/insertArticle', insertArticle);
+
+function updateEditArticle (request, response) {
+  let postDate = '';
+  request.on('data', function (data) {
+	postDate += data;
+  });
+  request.on('end', function () {
+    postDate = queryString.parse(postDate);
+	response.writeHead(200, respUtil.writeHead);
+    if (postDate.title && postDate.content && postDate.id) {
+	  serviceSet.updateEditArticle(postDate.id, postDate.title, postDate.content, postDate.tag, timeUtil.getNow(), function (result) {
+		response.write(respUtil.writeResult('success', '添加成功', null))
+		response.end();
+		log('/updateEditArticle 接口调用成功', 'web.log')
+	  })
+	} else {
+	  response.write(respUtil.writeResult('error', '参数异常', null))
+	  response.end();
+	  log('/updateEditArticle 接口参数异常', 'web.log')
+	}
+  })
+}
+path.set('/updateEditArticle', updateEditArticle);
 
 function queryTag(tag, blogId) {
   serviceSet.queryTag(tag, function (result) {
@@ -154,6 +177,7 @@ function queryBlogByLimit(request, response) {
 }
 path.set('/queryBlogByLimit', queryBlogByLimit);
 
+// 热门文章
 function queryHotBlog(request, response) {
   response.writeHead(200, respUtil.writeHead);
   serviceSet.queryHotBlog(7, function(result) {
@@ -163,5 +187,22 @@ function queryHotBlog(request, response) {
 }
 
 path.set('/queryHotBlog', queryHotBlog);
+
+function deleteBlog(request, response) {
+  response.writeHead(200, respUtil.writeHead)
+  let params = url.parse(request.url, true).query;
+  if (params.id) {
+	serviceSet.deleteBlog(params.id, function() {
+	  response.write(respUtil.writeResult('success', true, null));
+	  response.end();
+	})
+  } else {
+	response.write(respUtil.writeResult('参数异常', false, null));
+	response.end();
+  }
+  // serviceSet.deleteBlog()
+}
+
+path.set('/deleteBlog', deleteBlog);
 
 module.exports.path = path;

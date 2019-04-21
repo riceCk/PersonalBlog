@@ -4,9 +4,10 @@ let log = require('./log.js');
 let loader = require('./loader');
 let app = new express();
 const path = require('path');
-const history = require('connect-history-api-fallback');
-// const connect = require('connect');
+const history = require('connect-history-api-fallback')
 
+// const connect = require('connect');
+//
 app.use(history());
 app.use(express.static(path.resolve(__dirname, '../client/dist')));
 
@@ -20,6 +21,8 @@ app.get('/queryRandomTags', loader.get('/queryRandomTags'));
 app.get('/queryAllBlog', loader.get('/queryAllBlog'));
 app.get('/queryHotBlog', loader.get('/queryHotBlog'));
 app.get('/queryByTags', loader.get('/queryByTags'));
+app.get('/deleteBlog', loader.get('/deleteBlog'));
+app.post('/updateEditArticle', loader.get('/updateEditArticle'));
 
 app.listen(globalConfig.port, () => {
     log('服务器已启动', 'server')

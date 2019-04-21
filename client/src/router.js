@@ -8,7 +8,8 @@ import GuestBook from './views/page/guestBook'
 import EveryDay from './views/page/everyDay'
 import InsertArticle from './components/navMap/InsertArticle'
 import Detail from './views/page/blogDetail'
-// import Dom from './components/live2d/live'
+import Dom from './views/page/dom'
+import Live from './components/live2d/live'
 
 Vue.use(Router)
 
@@ -59,10 +60,15 @@ export default new Router({
 	  name: 'everyDay',
 	  component: EveryDay,
 	},
-	// {
-	//   path: '/dom',
-	//   name: 'dom',
-	//   component: Dom
-	// }
+	{
+	  path: '/dom',
+	  name: 'dom',
+	  component: Dom
+	},
+	{
+	  path: '/live',
+	  name: 'live',
+	  component: Live
+	}
   ]
 })

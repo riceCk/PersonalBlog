@@ -10,7 +10,6 @@ function selectEveryDay (success) {
   everyDayDao.selectEveryDay(success);
 }
 
-
 function insertArticle (title, content, tags, views, ctime, utime, success) {
   articleDao.insertArticle(title, content, tags, views, ctime, utime, success);
 }
@@ -44,6 +43,12 @@ function addViews (id, success) {
 function queryHotBlog(size, success) {
   articleDao.queryHotBlog(size, success);
 }
+function deleteBlog (id, success) {
+  articleDao.deleteBlog(id, success);
+}
+function updateEditArticle (id ,title, content, tags, utime, success) {
+  articleDao.updateEditArticle(id ,title, content, tags, utime, success)
+}
 
 function insertTag (tag, ctime, utime, success) {
   TagsDao.insertTag(tag, ctime, utime, success);
@@ -76,3 +81,5 @@ module.exports.addViews = addViews;
 module.exports.queryHotBlog = queryHotBlog;
 module.exports.queryByTags = queryByTags;
 module.exports.queryByTagsTotal = queryByTagsTotal;
+module.exports.deleteBlog = deleteBlog;
+module.exports.updateEditArticle = updateEditArticle;

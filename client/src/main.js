@@ -18,6 +18,13 @@ Vue.prototype.$qs = qs
 
 Vue.config.productionTip = false
 
+Vue.directive('auth', {
+  inserted: (el, binding) => {
+    // console.log(el)
+    // console.log(binding)
+  }
+})
+
 new Vue({
   router,
   store,

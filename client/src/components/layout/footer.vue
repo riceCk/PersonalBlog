@@ -11,7 +11,7 @@
         <router-link :to="{name: 'insertArticle'}">rice</router-link>
       </div>
       <div class="footer-right">
-        <router-link to="/">皖ICP备17007346号-1 </router-link>
+        <router-link to="/">苏ICP备19015853号 </router-link>
       </div>
     </footer>
   </div>

@@ -7,8 +7,7 @@
   <div class="content ">
     <div class="content_left guestBook">
       <div class="description">
-        <p>欢迎，BAT大牛经验指导-让你迅速成为公司炙手可热的新星</p>
-        <p style="color: red">-让你迅速成为公司炙手可热的新星</p>
+        <p>  2年部队经验养成良好的时间观 念以及对细节的把握，能够承受一 定抗压环境。热爱前端开发，平时 经常阅览简书、CSDN等论坛，不 定期发布项目到GithHb分享并收集 业界大佬的GitHub项目学习。</p>
         <p style="color: red">欢迎</p>
       </div>
       <blog-comments title="留言" />

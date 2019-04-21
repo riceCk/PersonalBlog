@@ -49,23 +49,54 @@
         },
 	  }
 	},
+    created () {
+	  this.init()
+    },
 	computed: {
 	  editor() {
 		return this.$refs.myQuillEditor.quill
 	  }
 	},
     methods: {
+	  init () {
+		let id = this.$route.query.id
+		if (id) {
+		  api.getBlogByDetail({id: id}).then(res => {
+			let {content, tags, title} = res.data.list
+            this.formData.content = content
+            this.formData.title = title
+            this.formData.tag = tags
+		  })
+		}
+      },
 	  addText () {
-        this.formData.tag = this.formData.tag || 'all'
-        let postData = this.$qs.stringify(this.formData)
-        api.postEditArticle(postData).then(res => {
-          let { data } = res
-          if (data.status === 'success') {
-            this.formData.title = ''
-            this.formData.content = ''
-            this.formData.tag = ''
-          }
-        })
+		let id = this.$route.query.id
+        if (!id) {
+		  this.formData.tag = this.formData.tag || 'all'
+		  let postData = this.$qs.stringify(this.formData)
+		  api.postEditArticle(postData).then(res => {
+			let { data } = res;
+			if (data.status === 'success') {
+			  this.formData.title = '';
+			  this.formData.content = '';
+			  this.formData.tag = ''
+			}
+		  })
+        } else {
+		  this.formData.tag = this.formData.tag || 'all'
+          this.formData.id = id;
+		  let postData = this.$qs.stringify(this.formData)
+          api.updateEditArticle(postData).then(res => {
+			let { data } = res
+			if (data.status === 'success') {
+			  this.formData.title = '';
+			  this.formData.content = '';
+			  this.formData.tag = ''
+			  this.$router.push({ path: '/detail', params: { id: id }})
+			}
+          })
+        }
+
       }
     }
   }

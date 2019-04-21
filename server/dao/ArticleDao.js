@@ -20,6 +20,21 @@ function insertArticle (title, content, tags, views, ctime, utime, success) {
   connection.end()
 }
 
+function updateEditArticle(id, title, content, tags, utime, success) {
+  let insertSql = 'update blog set title = ?, content = ?, tags = ?, utime = ? where id = ?';
+  let params = [title, content, tags, utime, id];
+  let connection = dbutil.createConnection();
+  connection.connect();
+  connection.query(insertSql, params, function (error, result) {
+    if (error == null) {
+	  success(result)
+	} else {
+      console.log(error);
+	  log('updateEditArticle:\n' +  error, 'Article.log')
+	}
+  })
+}
+
 function queryBlogByPage(pageNum, pageSize, success) {
   let insertSql = 'select * from blog order by id desc limit ?, ?';
   let params = [(pageNum - 1) * pageSize, pageSize];
@@ -162,7 +177,7 @@ function addViews (id, success){
 }
 
 function queryHotBlog (size, success) {
-  let querySql = 'select id,title from blog order by views desc limit ?;'
+  let querySql = 'select id,title from blog order by views desc limit ?';
   let params = [size];
   let connection = dbutil.createConnection();
   connection.connect();
@@ -177,6 +192,20 @@ function queryHotBlog (size, success) {
   connection.end();
 }
 
+function deleteBlog (id, success) {
+  let querySql = 'delete from `blog` where `id` = ?';
+  let params = [id];
+  let connection = dbutil.createConnection();
+  connection.connect();
+  connection.query(querySql, params, function (error) {
+	if (error == null) {
+	  success()
+	} else {
+	  log('deleteBlog: \n' + error, 'Article.log')
+	}
+  })
+}
+
 module.exports.insertArticle = insertArticle;
 module.exports.queryBlogByPage = queryBlogByPage;
 module.exports.queryBlogTotal = queryBlogTotal;
@@ -188,3 +217,5 @@ module.exports.addViews = addViews;
 module.exports.queryHotBlog = queryHotBlog;
 module.exports.queryByTags = queryByTags;
 module.exports.queryByTagsTotal = queryByTagsTotal;
+module.exports.deleteBlog = deleteBlog;
+module.exports.updateEditArticle = updateEditArticle;

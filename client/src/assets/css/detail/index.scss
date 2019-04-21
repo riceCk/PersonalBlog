@@ -10,6 +10,11 @@
   }
   .detail-meta {
     color: #657786;
+    .detail-edit {
+      padding: 0 5px;
+      color: #1c90f3;
+      cursor: pointer;
+    }
     time {
       font-size: 13px;
     }

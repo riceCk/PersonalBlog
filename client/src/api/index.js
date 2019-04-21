@@ -12,6 +12,9 @@ let api = {
   postEditArticle (params) {
     return axios.post('/insertArticle', params)
   },
+  updateEditArticle (params) {
+    return axios.post('/updateEditArticle', params)
+  },
   getBlogByPage (params) {
     return axios.get('/queryBlogByPage', {
       params: params
@@ -40,6 +43,11 @@ let api = {
   },
   queryHotBog () {
     return axios.get('/queryHotBlog')
+  },
+  deleteBlog (id) {
+	return axios.get('/deleteBlog', {
+	  params: id
+    })
   },
 }
 
