@@ -19,5 +19,17 @@ function queryRandomTags (request, response) {
 	response.end();
   })
 }
+
+function testInterface (request, response) {
+  response.writeHead(200, respUtil.writeHead);
+  let postDate = '';
+  request.on('data', function (data) {
+	postDate += data;
+	console.log(postDate, '测试接口数据')
+  });
+  response.write(respUtil.writeResult('success', '查询成功', null));
+  response.end();
+}
 path.set("/queryRandomTags", queryRandomTags);
+path.set("/testInterface", testInterface);
 module.exports.path = path;

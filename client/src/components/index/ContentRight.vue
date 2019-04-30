@@ -5,6 +5,7 @@
 */
 <template>
   <div class="content_right">
+    <right-Calendar />
     <right-tag />
     <right-hot />
     <!--<right-evaluation />-->
@@ -13,6 +14,7 @@
 </template>
 
 <script>
+  import RightCalendar from './RightCalendar'
   import RightTag from './RightTag'
   import RightHot from './RightHot'
   import RightEvaluation from './RightEvaluation'
@@ -22,7 +24,8 @@
 	  RightTag,
 	  RightHot,
 	  RightEvaluation,
-	  RightLink
+	  RightLink,
+	  RightCalendar
     }
   }
 </script>

@@ -49,6 +49,9 @@ let api = {
 	  params: id
     })
   },
+  testInterface (params) {
+	return axios.post('/testInterface', params)
+  }
 }
 
 export default api

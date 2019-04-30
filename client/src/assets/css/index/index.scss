@@ -63,5 +63,115 @@
       }
     }
   }
+  .content_right {
+    .right-calendar {
+      transform: scale(0.9) translate(20%, -15%);
+      .calendar {
+        position: relative;
+        font-family: "Istok Web",sans-serif;
+        width: 200px;
+        height: 200px;
+        background-color: #fff;
+        box-shadow: 0px 5px 5px #222,-5px 7px 0px 3px #726a57, -12px 13px 2px rgba(0, 0, 0, 0.2);
+        border-radius: 1px;
+        &:before {
+          content: '';
+          position: absolute;
+          bottom: 0px;
+          border-left: 200px solid transparent;
+          border-bottom: 30px solid rgba(0, 0, 0, .1);
+        }
+        .month {
+          position: relative;
+          width: 100%;
+          height: 40px;
+          background: linear-gradient(to right, #a32929, #ff6666 75%);
+          color: #fff;
+          box-shadow: 0px 5px 5px #ddd;
+          &:before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 60px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4d0000;
+            box-shadow: 60px 0px 0px #4d0000;
+          }
+          &:after {
+            content: '';
+            position: absolute;
+            left: 62px;
+            top: -12px;
+            width: 7px;
+            height: 20px;
+            background: #555;
+            border-radius: 20% 20% 0 0;
+            box-shadow: 0 -2px 0 #777, -1px 0 2px #777, 0 3px 0 #4d0000, 60px 0 0 #555, 60px -2px 0 #777;
+          }
+          .month-name {
+            bottom: 0;
+            padding: 10px;
+            font-size: 20px;
+            letter-spacing: 2px;
+            color: #fff;
+          }
+        }
+        .number {
+          text-align: center;
+          margin-top: -25px;
+          font-size: 150px;
+          color: #2d2d2d;
+          font-weight: 700;
+        }
+      }
+      .contain{
+        .caltwo {
+          width: 200px;
+          padding: 10px 0;
+          //margin: 100px auto 0 auto;
+          box-shadow: 2px 5px rgba(0 ,0, 0, .2);
+          background-color: #222;
+          text-align: center;
+          color: #eaeaea;
+          font-family: "Lato",sans-serif;
+          .daytwo {
+            font-size: 25px;
+            letter-spacing: 7px;
+            font-weight: 300;
+            margin-bottom: -2px;
+          }
+          .monthtwo {
+            font-size: 16px;
+            font-weight: 400;
+            color: #cc0000;
+            letter-spacing: 5px;
+            word-spacing: 5px;
+          }
+        }
+      }
+      .clock {
+        width: 150px;
+        height: 30px;
+        transform: translateX(15%);
+        background-color: #eaeaea;
+        //margin: 0 auto;
+        line-height: 30px;
+        text-align: center;
+        box-shadow: 5px 5px 2px rgba(0, 0, 0, .2);
+        .time {
+          display: inline-block;
+          padding: 0;
+          margin-right: -4px;
+          font-family: "Lato",sans-serif;
+          font-weight: 300;
+          color: #666;
+          letter-spacing: 5px;
+        }
+      }
+    }
+
+  }
 }
 

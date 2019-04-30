@@ -23,6 +23,7 @@ app.get('/queryHotBlog', loader.get('/queryHotBlog'));
 app.get('/queryByTags', loader.get('/queryByTags'));
 app.get('/deleteBlog', loader.get('/deleteBlog'));
 app.post('/updateEditArticle', loader.get('/updateEditArticle'));
+app.post('/testInterface', loader.get('/testInterface'));
 
 app.listen(globalConfig.port, () => {
     log('服务器已启动', 'server')

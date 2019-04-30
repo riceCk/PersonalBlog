@@ -10,6 +10,7 @@ import InsertArticle from './components/navMap/InsertArticle'
 import Detail from './views/page/blogDetail'
 import Dom from './views/page/dom'
 import Live from './components/live2d/live'
+import Pen from './views/game/pen'
 
 Vue.use(Router)
 
@@ -59,6 +60,11 @@ export default new Router({
 	  path: '/everyDay',
 	  name: 'everyDay',
 	  component: EveryDay,
+	},
+	{
+	  path: '/pen',
+	  name: 'pen',
+	  component: Pen
 	},
 	{
 	  path: '/dom',
