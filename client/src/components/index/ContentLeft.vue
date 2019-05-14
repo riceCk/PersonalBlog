@@ -11,7 +11,7 @@
         <router-link :to="{name: 'detail', query: {id: item.id}}" class="article_title">{{item.title}}</router-link>
         <div class="article_foot">
           发布于{{getCurDate(item.ctime)}} | 浏览（{{item.views}}） | Tags: {{item.tags}}
-          <span class="article_btn" v-auth="900407" @click="deleteBlog(item.id)">删除</span>
+          <span class="article_btn" v-auth="900407" @click="deleteBlog(item.id, item.tags)">删除</span>
         </div>
         <router-link  :to="{name: 'detail', query: {id: item.id}}" class="article_content">
           {{item.content}}
@@ -98,8 +98,9 @@
         }
       },
       // 删除博客
-	  deleteBlog (id) {
-	    api.deleteBlog({id: id}).then(res => {
+	  deleteBlog (id, tag) {
+	    console.log(id ,tag, 123)
+	    api.deleteBlog({id: id, tag: tag}).then(res => {
 	      let { data } = res
           if (data.msg) {
 			this.$message({

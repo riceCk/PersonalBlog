@@ -214,7 +214,8 @@
     border-radius: 0.5rem;
   }
   @media screen and (max-width: 640px) {
-    .board .board-item.board-item--selected {
+    .board .board-item.board-item--selected,
+    .board .board-item.board-item--matched {
       font-size: 2rem;
     }
   }

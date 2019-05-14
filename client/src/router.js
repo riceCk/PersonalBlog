@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/default'
+import Home from './views/default/default'
 import Index from './views/page/index'
 import NavMap from './views/page/navMap'
 import About from './views/page/about'
@@ -8,6 +8,7 @@ import GuestBook from './views/page/guestBook'
 import EveryDay from './views/page/everyDay'
 import InsertArticle from './components/navMap/InsertArticle'
 import Detail from './views/page/blogDetail'
+import Login from './views/default/login'
 import Dom from './views/page/dom'
 import Live from './components/live2d/live'
 import Pen from './views/game/pen'
@@ -55,6 +56,11 @@ export default new Router({
 		  component: Detail
 		}
 	  ]
+	},
+	{
+	  path: '/login',
+	  name: 'login',
+	  component: Login,
 	},
 	{
 	  path: '/everyDay',

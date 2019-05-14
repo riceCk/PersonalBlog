@@ -1,3 +1,4 @@
+
 export default {
   getCurDate(dateTime) {
 	let date = new Date(dateTime);
@@ -28,10 +29,10 @@ export default {
 	return `${y}-${m}-${r} ${h}:${f}:${s}`
   },
   // 重置一个有序的数组
-  shuffle (array) {
-    let currentIndex = array.length;
-    let temporaryValue; // 用来存放数据的中间变量
-    let randomIndex;    // 随机index值
+  shuffle(array) {
+	let currentIndex = array.length;
+	let temporaryValue; // 用来存放数据的中间变量
+	let randomIndex;    // 随机index值
 	while (0 !== currentIndex) {
 	  randomIndex = Math.floor(Math.random() * currentIndex);
 	  currentIndex -= 1;
@@ -40,5 +41,5 @@ export default {
 	  array[randomIndex] = temporaryValue
 	}
 	return array
-  }
+  },
 }

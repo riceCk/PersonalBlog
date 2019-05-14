@@ -1,7 +1,7 @@
 /**
  * 连接数据库的配置项
  */
-let mysql = require('mysql')
+let mysql = require('mysql');
 
 function createConnection () {
   let connection = mysql.createConnection({

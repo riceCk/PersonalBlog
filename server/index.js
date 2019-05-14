@@ -7,9 +7,9 @@ const path = require('path');
 const history = require('connect-history-api-fallback')
 
 // const connect = require('connect');
-//
+
 app.use(history());
-app.use(express.static(path.resolve(__dirname, '../client/dist')));
+app.use(express.static(path.resolve(__dirname, `..${globalConfig.dist}`)));
 
 app.post('/editEveryDay', loader.get('/editEveryDay'));
 app.get('/inquireEveryDay', loader.get('/inquireEveryDay'));

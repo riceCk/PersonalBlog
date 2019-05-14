@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './assets/css/main.css'
-import './assets/css/default.scss'
+import './assets/css/defalut/default.scss'
 import './plugins/element.js'
 import  VueQuillEditor from 'vue-quill-editor'
 // require styles 引入样式
@@ -20,8 +20,8 @@ Vue.config.productionTip = false
 
 Vue.directive('auth', {
   inserted: (el, binding) => {
-    // console.log(el)
-    // console.log(binding)
+    console.log(el, 'el')
+    console.log(binding, 'binding')
   }
 })
 

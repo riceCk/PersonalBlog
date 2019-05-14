@@ -9,6 +9,7 @@ let respUtil = require('../util/RespUtil');
 let path = new Map();
 let log = require('../log.js');
 
+// 新增博客接口
 function insertArticle(request, response) {
   let postDate = '';
   request.on('data', function (data) {
@@ -81,6 +82,7 @@ function insertTagBlogMapping(tagId, blogId) {
   })
 }
 
+// 查询博客内容
 function queryBlogByPage(request, response) {
   let params = url.parse(request.url, true).query;
   response.writeHead(200, respUtil.writeHead);
@@ -188,19 +190,25 @@ function queryHotBlog(request, response) {
 
 path.set('/queryHotBlog', queryHotBlog);
 
+// 删除博客
 function deleteBlog(request, response) {
   response.writeHead(200, respUtil.writeHead)
   let params = url.parse(request.url, true).query;
-  if (params.id) {
+  if (params.id && params.tag) {
 	serviceSet.deleteBlog(params.id, function() {
 	  response.write(respUtil.writeResult('success', true, null));
 	  response.end();
+	  deleteTag(params.id)
 	})
   } else {
 	response.write(respUtil.writeResult('参数异常', false, null));
-	response.end();
+	response.end(params.id);
   }
-  // serviceSet.deleteBlog()
+}
+function deleteTag (blogId) {
+  serviceSet.deleteTagBlogMapping(blogId, function () {
+	console.log('成功')
+  })
 }
 
 path.set('/deleteBlog', deleteBlog);

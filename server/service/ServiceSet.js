@@ -46,6 +46,9 @@ function queryHotBlog(size, success) {
 function deleteBlog (id, success) {
   articleDao.deleteBlog(id, success);
 }
+function deleteTagBlogMapping (blogId, success) {
+  articleDao.deleteTagBlogMapping(blogId, success);
+}
 function updateEditArticle (id ,title, content, tags, utime, success) {
   articleDao.updateEditArticle(id ,title, content, tags, utime, success)
 }
@@ -82,4 +85,5 @@ module.exports.queryHotBlog = queryHotBlog;
 module.exports.queryByTags = queryByTags;
 module.exports.queryByTagsTotal = queryByTagsTotal;
 module.exports.deleteBlog = deleteBlog;
+module.exports.deleteTagBlogMapping = deleteTagBlogMapping;
 module.exports.updateEditArticle = updateEditArticle;

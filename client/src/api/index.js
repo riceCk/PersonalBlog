@@ -44,9 +44,10 @@ let api = {
   queryHotBog () {
     return axios.get('/queryHotBlog')
   },
-  deleteBlog (id) {
+  deleteBlog (params) {
+    console.log(params)
 	return axios.get('/deleteBlog', {
-	  params: id
+	  params: params
     })
   },
   testInterface (params) {

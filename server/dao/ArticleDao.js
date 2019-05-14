@@ -4,6 +4,7 @@
 let dbutil = require('./DBUtil');
 let log = require('../log');
 
+// 新增博客内容
 function insertArticle (title, content, tags, views, ctime, utime, success) {
   let insertSql = 'insert into blog (`title`, `content`, `tags`, `views`, `ctime`, `utime`) value(?, ?, ?, ?, ?, ?)';
   let params = [title, content, tags, views, ctime, utime];
@@ -205,6 +206,20 @@ function deleteBlog (id, success) {
 	}
   })
 }
+function deleteTagBlogMapping (blogId, success) {
+  let querySql = 'delete from `tag_blog_mapping` where `blog_id` = ?';
+  let params = [blogId];
+  let connection = dbutil.createConnection();
+  connection.connect();
+  connection.query(querySql, params, function (error) {
+	if (error == null) {
+	  success()
+	} else {
+	  log('deleteBlog: \n' + error, 'Article.log')
+	}
+  })
+}
+
 
 module.exports.insertArticle = insertArticle;
 module.exports.queryBlogByPage = queryBlogByPage;
@@ -219,3 +234,4 @@ module.exports.queryByTags = queryByTags;
 module.exports.queryByTagsTotal = queryByTagsTotal;
 module.exports.deleteBlog = deleteBlog;
 module.exports.updateEditArticle = updateEditArticle;
+module.exports.deleteTagBlogMapping = deleteTagBlogMapping
