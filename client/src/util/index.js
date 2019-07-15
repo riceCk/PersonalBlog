@@ -42,4 +42,17 @@ export default {
 	}
 	return array
   },
+  // 防抖函数
+  debounce(fn, delay = 1000) {
+    let timer;
+    return function () {
+      let args = arguments;
+      if (timer) {
+        clearTimeout(timer);
+	  }
+	  timer = setTimeout(() => {
+	    fn.apply(this, args);
+	  }, delay);
+	}
+  }
 }

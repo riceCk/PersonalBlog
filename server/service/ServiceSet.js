@@ -2,6 +2,7 @@ let everyDayDao = require('../dao/EveryDayDao');
 let articleDao = require('../dao/ArticleDao');
 let TagsDao = require('../dao/TagsDao');
 let TagBlogMappingDao = require('../dao/TagBlogMappingDao');
+let UserLoginDao = require('../dao/UserLoginDao');
 
 function insertEveryDay (content, ctime, success) {
   everyDayDao.insertEveryDay(content, ctime, success);
@@ -67,6 +68,21 @@ function queryAllTag (success) {
 function insertTagBlogMapping (tagId, blogId, ctime, utime, success) {
   TagBlogMappingDao.insertTagBlogMapping(tagId, blogId, ctime, utime, success)
 }
+
+// 登录注册用户集合
+function insertUser (name, password, email, success) {
+  UserLoginDao.insertUser(name, password, email, success);
+}
+// 查找是否存在邮箱
+function queryEmail (email, success) {
+  UserLoginDao.queryEmail(email, success);
+}
+// 用户登录
+function loginInformation (email, password, success) {
+  UserLoginDao.loginInformation(email, password, success);
+}
+
+
 module.exports.insertEveryDay = insertEveryDay;
 module.exports.selectEveryDay = selectEveryDay;
 module.exports.insertArticle = insertArticle;
@@ -87,3 +103,6 @@ module.exports.queryByTagsTotal = queryByTagsTotal;
 module.exports.deleteBlog = deleteBlog;
 module.exports.deleteTagBlogMapping = deleteTagBlogMapping;
 module.exports.updateEditArticle = updateEditArticle;
+module.exports.insertUser = insertUser;
+module.exports.queryEmail = queryEmail;
+module.exports.loginInformation = loginInformation;

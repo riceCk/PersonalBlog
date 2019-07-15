@@ -21,7 +21,7 @@ Validator.prototype.strategies = {
   },
   // 验证姓名
   checkName: function (value, errorMsg) {
-	let reg = /(^[\u4E00-\u9FA5]{2,4}$)|(^[\u4E00-\u9FA5]+(·[\u4E00-\u9FA5]+)*$)|(^[\u4E00-\u9FA5A-Za-z\s]+(·[\u4E00-\u9FA5A-Za-z]+)*$)/
+	let reg = /^[a-zA-Z0-9_-]{4,16}$/
 	if (!reg.test(value)) {
 	  return errorMsg
 	}
@@ -49,8 +49,8 @@ Validator.prototype.add = function (data, showDom, strategyArray) {
       let typeArray = ele.strategy.split(':');
       let type = typeArray.shift();
       typeArray.unshift(data);
-      typeArray.push(ele.errorMsg)
-	  let msg = this.strategies[type].apply(this, typeArray)
+      typeArray.push(ele.errorMsg);
+	  let msg = this.strategies[type].apply(this, typeArray);
 	  if (msg !== true) {
 	    showDom.innerText = msg
 	  }

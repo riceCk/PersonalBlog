@@ -45,13 +45,25 @@ let api = {
     return axios.get('/queryHotBlog')
   },
   deleteBlog (params) {
-    console.log(params)
 	return axios.get('/deleteBlog', {
 	  params: params
     })
   },
   testInterface (params) {
 	return axios.post('/testInterface', params)
+  },
+  // 新用户注册
+  registered (params) {
+    return axios.post('/registered', params)
+  },
+  // 判断邮箱是否存在
+  queryEmail(params) {
+    return axios.get('/queryEmail', {
+      params
+    })
+  },
+  login (params) {
+    return axios.post('/login', params)
   }
 }
 

@@ -22,7 +22,9 @@ $diffRatio: ($contW - $imgW) / $contW;
   font-size: 20px;
   padding: 40px;
   min-width: 900px;
+  width: 100%;
   text-align: center;
+  display: inline-block;
 }
 
 .cont {

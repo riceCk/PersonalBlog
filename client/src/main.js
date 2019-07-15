@@ -12,9 +12,11 @@ import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 import axios from 'axios'
 import qs from 'qs'
+import md5 from 'js-md5'
 import './mock/index.js'
 Vue.prototype.$http = axios
 Vue.prototype.$qs = qs
+Vue.prototype.$md5 = md5
 
 Vue.config.productionTip = false
 

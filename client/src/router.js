@@ -10,6 +10,7 @@ import InsertArticle from './components/navMap/InsertArticle'
 import Detail from './views/page/blogDetail'
 import Login from './views/default/login'
 import Dom from './views/page/dom'
+import Text from './views/page/text'
 import Live from './components/live2d/live'
 import Pen from './views/game/pen'
 
@@ -76,6 +77,11 @@ export default new Router({
 	  path: '/dom',
 	  name: 'dom',
 	  component: Dom
+	},
+	{
+	  path: '/text',
+	  name: 'text',
+	  component: Text
 	},
 	{
 	  path: '/live',
