@@ -5,6 +5,7 @@ import store from './store'
 import './assets/css/main.css'
 import './assets/css/defalut/default.scss'
 import './plugins/element.js'
+import mintUi from 'mint-ui'
 import  VueQuillEditor from 'vue-quill-editor'
 // require styles 引入样式
 import 'quill/dist/quill.core.css'
@@ -30,6 +31,7 @@ Vue.directive('auth', {
 new Vue({
   router,
   store,
+  mintUi,
   VueQuillEditor,
   render: h => h(App)
 }).$mount('#app')

@@ -105,4 +105,4 @@ module.exports.deleteTagBlogMapping = deleteTagBlogMapping;
 module.exports.updateEditArticle = updateEditArticle;
 module.exports.insertUser = insertUser;
 module.exports.queryEmail = queryEmail;
-module.exports.loginInformation = loginInformation;
+module.exports.loginInformation = loginInformation; 
