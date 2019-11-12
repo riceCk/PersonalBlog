@@ -28,5 +28,5 @@ app.post('/login', loader.get('/login'));
 
 app.listen(globalConfig.port, () => {
     log('服务器已启动', 'server')
-    console.log('服务器已启动');
+    console.log(`localhost:${globalConfig.port},服务器已启动`);
 })

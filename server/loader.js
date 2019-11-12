@@ -1,10 +1,13 @@
+/**
+ * 统筹/web文件下的接口方法
+ * @param{/string} 接口名
+ */
+
 let fs = require('fs');
 let globalConfig = require('./conf/config');
-let log = require('./log');
 
 let controllerSet = [];
 let pathMap = new Map();
-console.log(globalConfig)
 let files = fs.readdirSync(globalConfig['web_path']);
 if (files.length === 0) {
   return
