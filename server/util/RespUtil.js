@@ -1,4 +1,4 @@
-let globalConfig = require('../config.js');
+let globalConfig = require('../conf/config.js');
 function writeResult (status, msg, data, total=0) {
   return JSON.stringify({status: status, msg: msg, list: data, total})
 }

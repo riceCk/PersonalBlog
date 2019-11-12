@@ -1,5 +1,5 @@
 const fs = require('fs');
-const globalConfig = require('./config');
+const globalConfig = require('./conf/config');
 
 const files = fs.readdirSync(globalConfig['filter_path']);
 let filterSet = [];

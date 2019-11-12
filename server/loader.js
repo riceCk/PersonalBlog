@@ -1,5 +1,5 @@
 let fs = require('fs');
-let globalConfig = require('./config');
+let globalConfig = require('./conf/config');
 let log = require('./log');
 
 let controllerSet = [];

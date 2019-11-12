@@ -2,7 +2,7 @@
  * 日志的处理
  */
 let fs = require('fs');
-let globalConfig = require('./config.js');
+let globalConfig = require('./conf/config.js');
 let moment = require('moment');
 
 function nowDate () {

@@ -1,5 +1,5 @@
 let express = require('express');
-let globalConfig = require('./config.js');
+let globalConfig = require('./conf/config.js');
 let log = require('./log.js');
 let loader = require('./loader');
 let app = new express();
