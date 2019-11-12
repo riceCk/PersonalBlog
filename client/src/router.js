@@ -13,6 +13,7 @@ import Dom from './views/page/dom'
 import Text from './views/page/text'
 import Live from './components/live2d/live'
 import Pen from './views/game/pen'
+import Exercise from './views/dom/index'
 
 Vue.use(Router)
 
@@ -87,6 +88,12 @@ export default new Router({
 	  path: '/live',
 	  name: 'live',
 	  component: Live
+	},
+	{
+	  path: '/exercise',
+	  name: 'exercise',
+	  component: Exercise,
+	  label: 'vue练习用'
 	}
   ]
 })

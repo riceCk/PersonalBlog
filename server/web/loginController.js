@@ -68,6 +68,7 @@ function login (request, response) {
 	if (postDate.email && postDate.password) {
 	  serviceSet.loginInformation(postDate.email, postDate.password, function (result) {
 		if (result.length > 0) {
+		  console.log({...respUtil.writeHead}, 12321)
 		  response.writeHead(200, {...respUtil.writeHead, 'Set-Cookie': 'tick=' + result[0].id});
 		  response.write(respUtil.writeResult('success', '登录成功', null))
 		  response.end();
